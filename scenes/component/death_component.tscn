@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://c65806m5fijo2"]
+
+[ext_resource type="Script" uid="uid://cr03vqaymt66d" path="res://scenes/component/death_component.gd" id="1_874pk"]
+[ext_resource type="Texture2D" uid="uid://0ojbyxo75i62" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="1_odwwo"]
+
+[sub_resource type="Animation" id="Animation_874pk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_odwwo"]
+resource_name = "death"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2q2bs"]
+_data = {
+&"RESET": SubResource("Animation_874pk"),
+&"death": SubResource("Animation_odwwo")
+}
+
+[sub_resource type="Curve" id="Curve_odwwo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.590551, 0.910112), -0.675931, -0.675931, 0, 0, Vector2(1, 0), -3.02181, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_874pk"]
+curve = SubResource("Curve_odwwo")
+
+[sub_resource type="Curve" id="Curve_874pk"]
+_data = [Vector2(0, 0.662921), 0.0, 6.35649, 0, 0, Vector2(0.503937, 0), -9.75094, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2q2bs"]
+curve = SubResource("Curve_874pk")
+
+[sub_resource type="Curve" id="Curve_2q2bs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.645669, 1), -0.804956, -0.804956, 0, 0, Vector2(1, 0), -3.56741, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_iypai"]
+curve = SubResource("Curve_2q2bs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_odwwo"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 20.0
+initial_velocity_min = 150.0
+initial_velocity_max = 220.0
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+gravity = Vector3(0, 512, 0)
+scale_curve = SubResource("CurveTexture_iypai")
+alpha_curve = SubResource("CurveTexture_874pk")
+emission_curve = SubResource("CurveTexture_2q2bs")
+
+[node name="DeathComponent" type="Node2D"]
+script = ExtResource("1_874pk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2q2bs")
+}
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+texture = ExtResource("1_odwwo")
+lifetime = 0.7
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_odwwo")

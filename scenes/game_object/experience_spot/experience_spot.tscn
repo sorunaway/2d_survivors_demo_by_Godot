@@ -1,0 +1,146 @@
+[gd_scene load_steps=20 format=3 uid="uid://dnijxjxexmwv3"]
+
+[ext_resource type="Script" uid="uid://cu6cdo02ch5h1" path="res://scenes/game_object/experience_spot/experience_spot.gd" id="1_3dcd8"]
+[ext_resource type="Texture2D" uid="uid://cdav6fb6gbi5d" path="res://scenes/game_object/experience_spot/experience_spot.png" id="1_rl1ux"]
+[ext_resource type="AudioStream" uid="uid://sj4f6uxrci0y" path="res://assets/sound/coin.wav" id="3_uohhb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rl1ux"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rl1ux"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2inly"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8542m"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl4qq"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pds6v"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mg21"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dcd8"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uohhb"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icnnk"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlvb6"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02xqx"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbth3"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su26w"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3i2wn"]
+atlas = ExtResource("1_rl1ux")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2inly"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rl1ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2inly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8542m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl4qq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pds6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mg21")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"dispear",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dcd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uohhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icnnk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlvb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02xqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlvb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbth3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su26w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3i2wn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="ExperienceSpot" type="Node2D"]
+script = ExtResource("1_3dcd8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_rl1ux")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2inly")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.322512
+offset = Vector2(0, -5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_uohhb")

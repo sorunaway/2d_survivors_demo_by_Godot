@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc42p7m231ct7"]
+
+[ext_resource type="Script" uid="uid://dpqlfulwnom4n" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.gd" id="1_ggov3"]
+[ext_resource type="PackedScene" uid="uid://bsyihh4nbl7f0" path="res://scenes/ability/axe_ability/axe_ability.tscn" id="2_oaa8l"]
+
+[node name="AxeAbilityController" type="Node"]
+script = ExtResource("1_ggov3")
+axe_ability = ExtResource("2_oaa8l")
+
+[node name="PrepareAttack" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true

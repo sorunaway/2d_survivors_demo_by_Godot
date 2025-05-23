@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq2h0xvajr24r"]
+
+[ext_resource type="Script" uid="uid://do74yeywkp41d" path="res://scenes/component/spot_drop_component.gd" id="1_o6wuf"]
+[ext_resource type="PackedScene" uid="uid://dnijxjxexmwv3" path="res://scenes/game_object/experience_spot/experience_spot.tscn" id="2_ix47i"]
+
+[node name="SpotDropComponent" type="Node"]
+script = ExtResource("1_o6wuf")
+spot_scene = ExtResource("2_ix47i")
