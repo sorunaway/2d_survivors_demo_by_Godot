@@ -1,2 +1,2 @@
 # 2d_survivors_demo_by_Godot
-这是一个学习GODOT编辑器的项目
+这是一个学习GODOT引擎，跟着教程做的项目
