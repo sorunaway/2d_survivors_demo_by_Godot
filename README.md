@@ -1,2 +1,2 @@
-# Owner-avatar-2d_survivors_demo_by_Godot
+# 2d_survivors_demo_by_Godot
 这是一个学习GODOT编辑器的项目
