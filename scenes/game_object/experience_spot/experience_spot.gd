@@ -34,8 +34,11 @@ func on_area_entered(other_area:Area2D):
 	Callable(disable_collision).call_deferred()
 	
 	var tween = create_tween()
+	tween.set_parallel()
 	tween.tween_method(tween_collect.bind(global_position), 0.0, 1.0, 0.6)\
 	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(animated_sprite_2d, "scale", Vector2(1.2, 1.2), 0.1).set_delay(0.5) 
+	tween.chain()
 	tween.tween_callback(collect)
 
 

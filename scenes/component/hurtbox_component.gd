@@ -3,6 +3,7 @@ class_name HurtboxComponent
 
 @export var health_component: HealthComponent
 
+var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
 
 func _ready() -> void:
 	area_entered.connect(on_area_entered)

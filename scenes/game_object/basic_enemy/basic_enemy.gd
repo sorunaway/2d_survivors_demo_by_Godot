@@ -13,8 +13,8 @@ func _process(_delta: float) -> void:
 	update_flip_direction(velocity)
 
 
-func update_flip_direction(velocity: Vector2):
-	var move_sign = sign(velocity.x)
+func update_flip_direction(velocity_vector: Vector2):
+	var move_sign = sign(velocity_vector.x)
 	if move_sign != 0 && move_sign != last_flip_direction:
 		visuals.scale = Vector2(-move_sign, 1)
 		last_flip_direction = move_sign
