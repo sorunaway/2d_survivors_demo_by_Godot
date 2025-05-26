@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cypxhbxv6dqlt" path="res://scenes/component/health_component.tscn" id="2_x7oge"]
 [ext_resource type="PackedScene" uid="uid://bq2h0xvajr24r" path="res://scenes/component/spot_drop_component.tscn" id="3_nrevg"]
 [ext_resource type="PackedScene" uid="uid://c65806m5fijo2" path="res://scenes/component/death_component.tscn" id="4_7laxo"]
-[ext_resource type="PackedScene" uid="uid://7lgb1wrn5yt5" path="res://Scenes/Component/velocity_component.tscn" id="4_jkye5"]
+[ext_resource type="PackedScene" uid="uid://7lgb1wrn5yt5" path="res://scenes/component/velocity_component.tscn" id="4_jkye5"]
 
 [sub_resource type="Animation" id="Animation_7laxo"]
 length = 0.001
