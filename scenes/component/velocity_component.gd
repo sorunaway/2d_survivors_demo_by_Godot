@@ -4,8 +4,10 @@ extends Node
 @export var acceleration: float = 5
 
 var velocity = Vector2.ZERO
+var knock_speed = 700
 
 
+# 向玩家加速
 func accelerate_to_player():
 	# 获取所属节点
 	var owner_node2d = owner as Node2D

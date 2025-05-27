@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dt7se0jn8seph"]
+[gd_scene load_steps=16 format=3 uid="uid://dt7se0jn8seph"]
 
 [ext_resource type="Texture2D" uid="uid://0ojbyxo75i62" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="1_63oef"]
 [ext_resource type="Script" uid="uid://ca5rcsfpnd4dc" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_cicqn"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bq2h0xvajr24r" path="res://scenes/component/spot_drop_component.tscn" id="3_nrevg"]
 [ext_resource type="PackedScene" uid="uid://c65806m5fijo2" path="res://scenes/component/death_component.tscn" id="4_7laxo"]
 [ext_resource type="PackedScene" uid="uid://7lgb1wrn5yt5" path="res://scenes/component/velocity_component.tscn" id="4_jkye5"]
+[ext_resource type="PackedScene" uid="uid://b8mlsflhn4gqe" path="res://scenes/component/hit_flash_component.tscn" id="5_v58qd"]
+[ext_resource type="Shader" uid="uid://bqorsghqcufe5" path="res://scenes/component/hit_flash_component.gdshader" id="6_t4oqy"]
 
 [sub_resource type="Animation" id="Animation_7laxo"]
 length = 0.001
@@ -94,6 +96,11 @@ _data = {
 &"walk": SubResource("Animation_nrevg")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyp5f"]
+resource_local_to_scene = true
+shader = ExtResource("6_t4oqy")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ryhp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cicqn"]
@@ -118,6 +125,11 @@ drop_percent = 0.8
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_jkye5")]
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_v58qd")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_yyp5f")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_7laxo")]
 health_component = NodePath("../HealthComponent")

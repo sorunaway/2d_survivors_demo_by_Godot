@@ -6,7 +6,7 @@ extends CharacterBody2D
 var last_flip_direction: int = 1
 
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# 向主角位置移动
 	velocity_component.accelerate_to_player()
 	velocity_component.move(self)

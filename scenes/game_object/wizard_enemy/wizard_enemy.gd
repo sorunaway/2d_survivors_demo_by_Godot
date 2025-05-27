@@ -2,12 +2,13 @@ extends CharacterBody2D
 
 @onready var velocity_component: Node = $VelocityComponent
 @onready var visuals: Node2D = $Visuals
+@onready var health_component: HealthComponent = $HealthComponent
 
 var last_flip_direction:int = 1
 var is_moving = false
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if is_moving:
 		velocity_component.accelerate_to_player()
 	else:

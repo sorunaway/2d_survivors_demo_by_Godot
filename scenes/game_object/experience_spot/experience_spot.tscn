@@ -136,10 +136,12 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_rl1ux")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+process_mode = 3
 sprite_frames = SubResource("SpriteFrames_2inly")
-animation = &"idle"
+animation = &"dispear"
 autoplay = "idle"
 offset = Vector2(0, -5)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("3_uohhb")
