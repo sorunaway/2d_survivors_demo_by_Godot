@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://c00et0l5x8dfd"]
 
-[ext_resource type="FontFile" uid="uid://yxbca57dowyj" path="res://font/ThaleahFat.ttf" id="1_ak26g"]
+[ext_resource type="FontFile" uid="uid://yxbca57dowyj" path="res://resources/theme/ThaleahFat.ttf" id="1_ak26g"]
 
 [resource]
 default_font = ExtResource("1_ak26g")

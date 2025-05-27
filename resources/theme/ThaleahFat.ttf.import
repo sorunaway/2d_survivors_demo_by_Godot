@@ -3,17 +3,17 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://yxbca57dowyj"
-path="res://.godot/imported/ThaleahFat.ttf-02404ff75121f352b29908553dc28a1b.fontdata"
+path="res://.godot/imported/ThaleahFat.ttf-c49bfc9a8834d8efd2ee75357c757e7a.fontdata"
 
 [deps]
 
-source_file="res://font/ThaleahFat.ttf"
-dest_files=["res://.godot/imported/ThaleahFat.ttf-02404ff75121f352b29908553dc28a1b.fontdata"]
+source_file="res://resources/theme/ThaleahFat.ttf"
+dest_files=["res://.godot/imported/ThaleahFat.ttf-c49bfc9a8834d8efd2ee75357c757e7a.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -21,15 +21,20 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=1
-subpixel_positioning=4
+hinting=0
+subpixel_positioning=0
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[]
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "新建配置",
+"size": Vector2i(16, 0)
+}]
 language_support={}
 script_support={}
 opentype_features={}
