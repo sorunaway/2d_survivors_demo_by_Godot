@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://dbfnu2hrv1dvb"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_bxluk"]
+
+[resource]
+script = ExtResource("1_bxluk")
+id = "axe_damage"
+max_quantity = 5
+name = "Axe Damage"
+description = "increase Axe attack damage by 15%."

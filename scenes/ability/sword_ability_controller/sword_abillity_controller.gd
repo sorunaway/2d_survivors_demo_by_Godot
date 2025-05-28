@@ -6,7 +6,8 @@ const MAX_RANGE = 120
 
 var base_attack_speed = 0.5
 var current_attack_speed = base_attack_speed
-var damage: float = 5
+var base_damage: float = 5.0
+var additional_damage_percent = 1
 
 
 func _ready() -> void:
@@ -47,7 +48,7 @@ func on_prepare_attack_timeout():
 		var sword_direction = enemies[0].global_position - player.global_position
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(sword_instance)
-		sword_instance.hitbox_component.damage = damage
+		sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
 		# 位置偏移角度
 		sword_instance.global_position = enemies[0].global_position - (sword_direction.normalized() * 12)
 		sword_instance.rotation = sword_direction.angle()
@@ -57,10 +58,10 @@ func on_prepare_attack_timeout():
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id != "sword_rate":
-		return
-	
-	var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-	current_attack_speed += base_attack_speed * percent_reduction
-	$Cooldown.wait_time = 1/current_attack_speed
-	$Cooldown.start()
+	if upgrade.id == "sword_rate":
+		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
+		current_attack_speed += base_attack_speed * percent_reduction
+		$Cooldown.wait_time = 1/current_attack_speed
+		$Cooldown.start()
+	elif upgrade.id == "sword_damage":
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.2)

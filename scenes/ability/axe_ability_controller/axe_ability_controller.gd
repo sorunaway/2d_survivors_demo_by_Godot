@@ -9,12 +9,14 @@ const MAX_RANGE = 120
 
 var base_attack_speed = 0.33
 var current_attack_speed = base_attack_speed
-var damage: float = 10
+var base_damage: float = 10
+var additional_damage_percent = 1
 
 
 func _ready() -> void:
 	prepare_attack.timeout.connect(on_prepare_attack_timeout)
 	cooldown.wait_time = 1/current_attack_speed
+	GameEvents.ability_upgrades_added.connect(on_ability_upgrade_added)
 
 
 func on_prepare_attack_timeout():
@@ -32,5 +34,15 @@ func on_prepare_attack_timeout():
 	var axe_instance = axe_ability.instantiate() as Node2D
 	foreground_layer.add_child(axe_instance)
 	axe_instance.global_position = player.global_position
-	axe_instance.hitbox_component.damage = damage
+	axe_instance.hitbox_component.damage = base_damage * additional_damage_percent
 	$Cooldown.start()
+
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id == "axe_rate":
+		var percent_reduction = current_upgrades["axe_rate"]["quantity"] * 0.1
+		current_attack_speed += base_attack_speed * percent_reduction
+		$Cooldown.wait_time = 1/current_attack_speed
+		$Cooldown.start()
+	elif upgrade.id == "axe_damage":
+		additional_damage_percent = 1 + (current_upgrades["axe_damage"]["quantity"] * 0.15)
