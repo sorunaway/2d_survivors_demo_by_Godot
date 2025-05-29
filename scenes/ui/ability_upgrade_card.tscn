@@ -1,21 +1,84 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhfpvut2hc53s"]
+[gd_scene load_steps=5 format=3 uid="uid://bhfpvut2hc53s"]
 
 [ext_resource type="Script" uid="uid://w4ssqdtvueqi" path="res://scenes/ui/ability_upgrade_card.gd" id="1_4ci0n"]
 
+[sub_resource type="Animation" id="Animation_8ur3e"]
+resource_name = "in"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1.2, 1.2), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m44y0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4j7u"]
+_data = {
+&"RESET": SubResource("Animation_m44y0"),
+&"in": SubResource("Animation_8ur3e")
+}
+
 [node name="AbilityUpgradeCard" type="PanelContainer"]
-custom_minimum_size = Vector2(120, 160)
+custom_minimum_size = Vector2(132, 160)
+pivot_offset = Vector2(66, 80)
 script = ExtResource("1_4ci0n")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c4j7u")
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "test name
-"
+size_flags_vertical = 4
+mouse_filter = 2
+theme_type_variation = &"AlternatePanelContainer"
 
-[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(100, 16)
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "test name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(108, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49, 0.33565, 0.3185, 1)
+theme_override_constants/shadow_offset_x = 1
 text = "test test test test test test test test test test "
 autowrap_mode = 2
