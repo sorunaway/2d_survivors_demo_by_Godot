@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcxa6eem6j7cp"]
+[gd_scene load_steps=2 format=3 uid="uid://dcxa6eem6j7cp"]
 
 [ext_resource type="Script" uid="uid://t8y51to0oyv3" path="res://scenes/ui/end_screen.gd" id="1_noxrh"]
-[ext_resource type="Theme" uid="uid://c00et0l5x8dfd" path="res://scenes/ui/theme1.tres" id="2_3fy8f"]
 
 [node name="EndScreen" type="CanvasLayer"]
 process_mode = 3
@@ -13,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_3fy8f")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2

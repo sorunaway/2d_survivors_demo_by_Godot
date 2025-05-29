@@ -53,8 +53,8 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 func pick_upgrades():
 	# 为已选择能力创建一个空数组
 	var chosen_upgrades: Array[AbilityUpgrade] = []
-	# 重复两次筛选待升级能力选项
-	for i in 2:
+	# 重复3次筛选待升级能力选项
+	for i in 3:
 		if upgrade_pool.items.size() == chosen_upgrades.size():
 			break
 		var chosen_upgrade = upgrade_pool.pick_item(chosen_upgrades)

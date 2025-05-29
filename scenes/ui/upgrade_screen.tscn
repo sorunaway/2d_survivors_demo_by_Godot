@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctln5wx6raj0g"]
+[gd_scene load_steps=3 format=3 uid="uid://ctln5wx6raj0g"]
 
-[ext_resource type="Theme" uid="uid://c00et0l5x8dfd" path="res://scenes/ui/theme1.tres" id="1_680ne"]
 [ext_resource type="Script" uid="uid://byqpoo04xj2gf" path="res://scenes/ui/upgrade_screen.gd" id="1_f0nl4"]
 [ext_resource type="PackedScene" uid="uid://bhfpvut2hc53s" path="res://scenes/ui/ability_upgrade_card.tscn" id="2_f0nl4"]
 
@@ -15,7 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_680ne")
 
 [node name="CardContainer" type="HBoxContainer" parent="MarginContainer"]
 unique_name_in_owner = true
