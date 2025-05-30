@@ -93,8 +93,8 @@ theme_type_variation = &"AlternatePanelContainer"
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "test name"
+theme_override_font_sizes/font_size = 30
+text = "斧头"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -104,5 +104,5 @@ custom_minimum_size = Vector2(108, 16)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.49, 0.33565, 0.3185, 1)
 theme_override_constants/shadow_offset_x = 1
-text = "test test test test test test test test test test "
+text = "test test test test test test test test test test 斧头"
 autowrap_mode = 2

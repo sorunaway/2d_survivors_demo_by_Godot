@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://d1ohceo06kk7u"]
 
-[ext_resource type="FontFile" uid="uid://yxbca57dowyj" path="res://resources/theme/ThaleahFat.ttf" id="1_p1yg6"]
 [ext_resource type="Texture2D" uid="uid://bequkxaqaq0p7" path="res://assets/ui/ui.png" id="1_pgmju"]
+[ext_resource type="FontFile" uid="uid://cc23j05lvgocb" path="res://resources/theme/MyPixelFont.ttf" id="2_pgmju"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgmju"]
 texture = ExtResource("1_pgmju")
@@ -20,8 +20,8 @@ texture_margin_bottom = 6.0
 region_rect = Rect2(11, 107, 26, 28)
 
 [resource]
-default_font = ExtResource("1_p1yg6")
-default_font_size = 16
+default_font = ExtResource("2_pgmju")
+default_font_size = 15
 AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_pgmju")
 Label/constants/line_spacing = 0
