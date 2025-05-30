@@ -1,6 +1,5 @@
 [gd_scene load_steps=16 format=3 uid="uid://bvkhms068n6rx"]
 
-[ext_resource type="Texture2D" uid="uid://j7357xvbqgr8" path="res://scenes/game_object/wizard_enemy/wizard_enemy.png" id="1_43j36"]
 [ext_resource type="Script" uid="uid://cvp6rfl75vgwl" path="res://scenes/game_object/wizard_enemy/wizard_enemy.gd" id="1_qct4f"]
 [ext_resource type="PackedScene" uid="uid://c65806m5fijo2" path="res://scenes/component/death_component.tscn" id="2_4jk3l"]
 [ext_resource type="PackedScene" uid="uid://7lgb1wrn5yt5" path="res://scenes/component/velocity_component.tscn" id="2_qgqx6"]
@@ -9,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8mlsflhn4gqe" path="res://scenes/component/hit_flash_component.tscn" id="5_74qiw"]
 [ext_resource type="Shader" uid="uid://bqorsghqcufe5" path="res://scenes/component/hit_flash_component.gdshader" id="6_h4ano"]
 [ext_resource type="PackedScene" uid="uid://bq2h0xvajr24r" path="res://scenes/component/spot_drop_component.tscn" id="7_rquut"]
+[ext_resource type="Texture2D" uid="uid://bcbqucubxgpg6" path="res://scenes/game_object/wizard_enemy/snake_enemy.png" id="9_74qiw"]
 
 [sub_resource type="Animation" id="Animation_sjtyn"]
 length = 0.001
@@ -167,8 +167,8 @@ debug_color = Color(1.29953e-06, 0.638717, 0.374836, 0.42)
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Visuals"]
-texture = ExtResource("1_43j36")
-offset = Vector2(0, -8)
+texture = ExtResource("9_74qiw")
+offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

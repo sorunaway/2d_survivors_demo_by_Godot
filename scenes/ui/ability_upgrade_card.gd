@@ -12,6 +12,12 @@ func _ready() -> void:
 	gui_input.connect(on_gui_input)
 
 
+func play_in(delay: float = 0):
+	modulate = Color.TRANSPARENT # 入场时透明化
+	await get_tree().create_timer(delay).timeout # 延迟
+	$AnimationPlayer.play("in")
+
+
 # 获取升级技能数据，应用卡片UI描述
 func set_ability_upgrade(upgrade:AbilityUpgrade):
 	name_label.text = upgrade.name
