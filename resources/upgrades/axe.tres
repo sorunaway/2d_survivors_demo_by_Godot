@@ -9,4 +9,4 @@ ability_controller_scene = ExtResource("1_k7sny")
 id = "axe"
 max_quantity = 1
 name = "斧头"
-description = "丢出去一把旋转的斧头"
+description = "每隔一段时间丢出去一把旋转的斧头"
