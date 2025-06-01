@@ -8,8 +8,8 @@ func _ready() -> void:
 
 
 func set_defeat():
-	%TitleLabel.text = "Defeat"
-	%DescriptionLabel.text = "You Lose!"
+	%TitleLabel.text = "失败"
+	%DescriptionLabel.text = "你没能坚持下来"
 
 func on_restart_button_pressed():
 	get_tree().paused = false

@@ -26,5 +26,7 @@ func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
 func on_upgrade_selected(upgrade:AbilityUpgrade):
 	# 用信号传递已选择的升级参数
 	upgrade_selected.emit(upgrade)
+	$AnimationPlayer.play("out")
+	await $AnimationPlayer.animation_finished
 	get_tree().paused = false
 	queue_free()

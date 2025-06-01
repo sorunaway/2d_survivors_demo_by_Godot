@@ -31,22 +31,26 @@ layout_mode = 2
 [node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Victory"
+theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
+theme_override_font_sizes/font_size = 30
+text = "胜利"
 horizontal_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "You won!"
+theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
+text = "你坚持了下来"
 horizontal_alignment = 1
 
 [node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
 text = "Restart"
 
 [node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
 text = "Quit"

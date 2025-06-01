@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d1ohceo06kk7u"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d1ohceo06kk7u"]
 
 [ext_resource type="Texture2D" uid="uid://bequkxaqaq0p7" path="res://assets/ui/ui.png" id="1_pgmju"]
 [ext_resource type="FontFile" uid="uid://cc23j05lvgocb" path="res://resources/theme/MyPixelFont.ttf" id="2_pgmju"]
@@ -10,6 +10,14 @@ texture_margin_top = 7.0
 texture_margin_right = 7.0
 texture_margin_bottom = 7.0
 region_rect = Rect2(153, 57, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wk0u"]
+texture = ExtResource("1_pgmju")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(837, 4, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqsyt"]
 texture = ExtResource("1_pgmju")
@@ -24,5 +32,6 @@ default_font = ExtResource("2_pgmju")
 default_font_size = 15
 AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_pgmju")
+Button/styles/normal = SubResource("StyleBoxTexture_5wk0u")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_oqsyt")
