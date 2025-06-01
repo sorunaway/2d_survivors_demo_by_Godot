@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d1ohceo06kk7u"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://d1ohceo06kk7u"]
 
 [ext_resource type="Texture2D" uid="uid://bequkxaqaq0p7" path="res://assets/ui/ui.png" id="1_pgmju"]
 [ext_resource type="FontFile" uid="uid://cc23j05lvgocb" path="res://resources/theme/MyPixelFont.ttf" id="2_pgmju"]
@@ -27,6 +27,17 @@ texture_margin_right = 4.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(11, 107, 26, 28)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wme48"]
+bg_color = Color(0.18, 0.108, 0.1272, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiefj"]
+bg_color = Color(0.333333, 0.745098, 0.909804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.180392, 0.109804, 0.12549, 1)
+
 [resource]
 default_font = ExtResource("2_pgmju")
 default_font_size = 15
@@ -35,3 +46,5 @@ AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_pgmju")
 Button/styles/normal = SubResource("StyleBoxTexture_5wk0u")
 Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_oqsyt")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_wme48")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_oiefj")
