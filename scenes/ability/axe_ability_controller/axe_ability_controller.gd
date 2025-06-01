@@ -45,4 +45,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		$Cooldown.wait_time = 1/current_attack_speed
 		$Cooldown.start()
 	elif upgrade.id == "axe_damage":
-		additional_damage_percent = 1 + (current_upgrades["axe_damage"]["quantity"] * 0.15)
+		additional_damage_percent = 1 + (current_upgrades["axe_damage"]["quantity"] * 0.2)

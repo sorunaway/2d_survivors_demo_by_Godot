@@ -58,10 +58,12 @@ func on_prepare_attack_timeout():
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	# 攻速增加10%
 	if upgrade.id == "sword_rate":
 		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
 		current_attack_speed += base_attack_speed * percent_reduction
 		$Cooldown.wait_time = 1/current_attack_speed
 		$Cooldown.start()
+	# 伤害增加30%
 	elif upgrade.id == "sword_damage":
-		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.2)
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.3)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxjcad607cmpb" path="res://scenes/manager/enemy_manager.gd" id="1_kao58"]
 [ext_resource type="PackedScene" uid="uid://dt7se0jn8seph" path="res://scenes/game_object/basic_enemy/basic_enemy.tscn" id="2_ftnxu"]
-[ext_resource type="PackedScene" uid="uid://bvkhms068n6rx" path="res://scenes/game_object/wizard_enemy/wizard_enemy.tscn" id="3_bortd"]
+[ext_resource type="PackedScene" uid="uid://bvkhms068n6rx" path="res://scenes/game_object/snake_enemy/snake_enemy.tscn" id="3_bortd"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_kao58")

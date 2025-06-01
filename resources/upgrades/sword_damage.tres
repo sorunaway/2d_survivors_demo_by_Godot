@@ -7,4 +7,4 @@ script = ExtResource("1_04we8")
 id = "sword_damage"
 max_quantity = 5
 name = "利爪"
-description = "增加爪抓伤害20%"
+description = "增加爪抓伤害30%"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bvkhms068n6rx"]
 
-[ext_resource type="Script" uid="uid://cvp6rfl75vgwl" path="res://scenes/game_object/wizard_enemy/wizard_enemy.gd" id="1_qct4f"]
+[ext_resource type="Script" uid="uid://cvp6rfl75vgwl" path="res://scenes/game_object/snake_enemy/snake_enemy.gd" id="1_qct4f"]
 [ext_resource type="PackedScene" uid="uid://c65806m5fijo2" path="res://scenes/component/death_component.tscn" id="2_4jk3l"]
 [ext_resource type="PackedScene" uid="uid://7lgb1wrn5yt5" path="res://scenes/component/velocity_component.tscn" id="2_qgqx6"]
 [ext_resource type="PackedScene" uid="uid://cypxhbxv6dqlt" path="res://scenes/component/health_component.tscn" id="2_ukqif"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8mlsflhn4gqe" path="res://scenes/component/hit_flash_component.tscn" id="5_74qiw"]
 [ext_resource type="Shader" uid="uid://bqorsghqcufe5" path="res://scenes/component/hit_flash_component.gdshader" id="6_h4ano"]
 [ext_resource type="PackedScene" uid="uid://bq2h0xvajr24r" path="res://scenes/component/spot_drop_component.tscn" id="7_rquut"]
-[ext_resource type="Texture2D" uid="uid://bcbqucubxgpg6" path="res://scenes/game_object/wizard_enemy/snake_enemy.png" id="9_74qiw"]
+[ext_resource type="Texture2D" uid="uid://bcbqucubxgpg6" path="res://scenes/game_object/snake_enemy/snake_enemy.png" id="9_74qiw"]
 
 [sub_resource type="Animation" id="Animation_sjtyn"]
 length = 0.001
@@ -143,14 +143,15 @@ max_health = 30.0
 drop_percent = 0.95
 health_component = NodePath("../HealthComponent")
 
+[node name="VelocityComponent" parent="." instance=ExtResource("2_qgqx6")]
+max_speed = 80
+acceleration = 40.0
+deceleration = 50.0
+
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("5_74qiw")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 hit_flash_material = SubResource("ShaderMaterial_7kpoi")
-
-[node name="VelocityComponent" parent="." instance=ExtResource("2_qgqx6")]
-max_speed = 80
-acceleration = 40.0
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_4jk3l")]
 health_component = NodePath("../HealthComponent")

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-const MAXSPEED = 100
-const ACCELERATION = 1200
-const DECELERATION = 1800
+#const MAXSPEED = 100
+#const ACCELERATION = 1200
+#const DECELERATION = 1800
 
 @onready var damage_interval_timer: Timer = $DamageIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
@@ -10,6 +10,7 @@ const DECELERATION = 1800
 @onready var abilities: Node = $Abilities
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visuals: Node2D = $Visuals
+@onready var velocity_component: Node = $VelocityComponent
 
 var number_colliding_bodies = 0
 var current_animation: String = "idle"
@@ -28,9 +29,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# 获得输入向量,死区
 	var input_vector = Input.get_vector("move_left","move_right","move_up","move_down", 0)
-	# 处理移动
-	handle_movement(input_vector, delta)
-	move_and_slide()
+	
+	velocity_component.accelerate_in_direction(input_vector)
+	velocity_component.move(self)
+	## 处理移动
+	#handle_movement(input_vector, delta)
+	#move_and_slide()
 	# 更新动画和方向
 	update_animations(input_vector)
 	update_flip_direction(input_vector)
@@ -52,12 +56,12 @@ func update_flip_direction(input_vector: Vector2):
 		last_flip_direction = move_sign
 
 
-func handle_movement(input_vector: Vector2, delta: float):
-	var target_speed = input_vector * MAXSPEED
-	if input_vector != Vector2.ZERO:
-		velocity = velocity.move_toward(target_speed, ACCELERATION * delta)
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, DECELERATION * delta)
+#func handle_movement(input_vector: Vector2, delta: float):
+	#var target_speed = input_vector * MAXSPEED
+	#if input_vector != Vector2.ZERO:
+		#velocity = velocity.move_toward(target_speed, ACCELERATION * delta)
+	#else:
+		#velocity = velocity.move_toward(Vector2.ZERO, DECELERATION * delta)
 
 
 #受伤扣血处理,伤害间隔

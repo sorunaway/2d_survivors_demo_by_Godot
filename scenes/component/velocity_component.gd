@@ -2,6 +2,7 @@ extends Node
 
 @export var max_speed: int = 40
 @export var acceleration: float = 5
+@export var deceleration: float = 5
 
 var velocity = Vector2.ZERO
 var knock_speed = 700
@@ -27,7 +28,11 @@ func accelerate_to_player():
 # 向目标方向加速
 func accelerate_in_direction(direction: Vector2):
 	var desired_velocity = direction * max_speed
-	velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	if direction != Vector2.ZERO:
+		velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	else:
+		velocity = velocity.lerp(desired_velocity, 1 - exp(-deceleration * get_process_delta_time()))
+
 
 
 # 减速
