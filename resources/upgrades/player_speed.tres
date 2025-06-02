@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ocgv3")
 id = "player_speed"
-max_quantity = 2
-name = "跑得快"
+max_quantity = 3
+name = "跑快快"
 description = "跑得更快,移动速度增加10%"

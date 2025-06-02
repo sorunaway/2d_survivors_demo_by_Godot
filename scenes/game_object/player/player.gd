@@ -15,9 +15,13 @@ extends CharacterBody2D
 var number_colliding_bodies = 0
 var current_animation: String = "idle"
 var last_flip_direction: int = 1 # 初始方向右
+var base_speed = 0
 
 
 func _ready() -> void:
+	base_speed = velocity_component.max_speed
+	
+	# 连接信号
 	$HurtArea2D.body_entered.connect(on_body_entered)
 	$HurtArea2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
@@ -56,14 +60,6 @@ func update_flip_direction(input_vector: Vector2):
 		last_flip_direction = move_sign
 
 
-#func handle_movement(input_vector: Vector2, delta: float):
-	#var target_speed = input_vector * MAXSPEED
-	#if input_vector != Vector2.ZERO:
-		#velocity = velocity.move_toward(target_speed, ACCELERATION * delta)
-	#else:
-		#velocity = velocity.move_toward(Vector2.ZERO, DECELERATION * delta)
-
-
 #受伤扣血处理,伤害间隔
 func check_deal_damage():
 	if number_colliding_bodies <= 0 or !damage_interval_timer.is_stopped():
@@ -95,14 +91,16 @@ func on_damage_interval_timer_timeout():
 
 # 接收到HP变化，更新HPUI显示
 func on_health_changed():
+	GameEvents.emit_player_damaged()
 	update_health_display()
 
 
 # 接收到能力升级增加
 func on_ability_upgrades_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	#检测所获能力是否为新能力类别(如果不是新能力，返回)
-	if not ability_upgrade is NewAbility:
-		return
-	# 实例化并添加新能力
-	var new_ability = ability_upgrade as NewAbility
-	abilities.add_child(new_ability.ability_controller_scene.instantiate())
+	#检测所获能力是否为新能力类别
+	if ability_upgrade is NewAbility:
+		# 实例化并添加新能力
+		var new_ability = ability_upgrade as NewAbility
+		abilities.add_child(new_ability.ability_controller_scene.instantiate())
+	elif ability_upgrade.id == "player_speed":
+		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * 0.1)
