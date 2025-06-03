@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://c7qnwjr1shycu"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_enhw4"]
+
+[resource]
+script = ExtResource("1_enhw4")
+id = "pickup_range"
+max_quantity = 5
+name = "大口袋"
+description = "拾取范围增加10"

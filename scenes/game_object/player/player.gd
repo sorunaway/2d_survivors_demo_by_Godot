@@ -11,15 +11,18 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visuals: Node2D = $Visuals
 @onready var velocity_component: Node = $VelocityComponent
+@onready var pickup_area_shape: CollisionShape2D = $PickupArea2D/CollisionShape2D
+
 
 var number_colliding_bodies = 0
 var current_animation: String = "idle"
 var last_flip_direction: int = 1 # 初始方向右
 var base_speed = 0
-
+var pickup_range = 0.0
 
 func _ready() -> void:
 	base_speed = velocity_component.max_speed
+	pickup_range = pickup_area_shape.shape.radius
 	
 	# 连接信号
 	$HurtArea2D.body_entered.connect(on_body_entered)
@@ -95,7 +98,7 @@ func on_health_changed():
 	update_health_display()
 
 
-# 接收到能力升级增加
+# 接收到能力升级增加,能力升级的具体效果
 func on_ability_upgrades_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	#检测所获能力是否为新能力类别
 	if ability_upgrade is NewAbility:
@@ -103,4 +106,6 @@ func on_ability_upgrades_added(ability_upgrade: AbilityUpgrade, current_upgrades
 		var new_ability = ability_upgrade as NewAbility
 		abilities.add_child(new_ability.ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
-		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * 0.1)
+		velocity_component.max_speed = base_speed + (current_upgrades["player_speed"]["quantity"] * 10)
+	elif ability_upgrade.id == "pickup_range":
+		pickup_area_shape.shape.radius = pickup_range + (pickup_range * current_upgrades["pickup_range"]["quantity"] * 0.5)
