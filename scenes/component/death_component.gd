@@ -12,3 +12,4 @@ func on_died():
 	var entities = get_tree().get_first_node_in_group("entities_layer")
 	self.reparent(entities, true)
 	$AnimationPlayer.play("death")
+	$HitRandomAudioPlayer.play_random()

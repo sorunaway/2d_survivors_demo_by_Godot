@@ -1,11 +1,16 @@
 extends CharacterBody2D
 
-@onready var velocity_component: Node = $VelocityComponent
 @onready var visuals: Node2D = $Visuals
-@onready var health_component: HealthComponent = $HealthComponent
+@onready var velocity_component: Node = $VelocityComponent
+@onready var hit_random_audio_player: AudioStreamPlayer2D = $DeathComponent/HitRandomAudioPlayer
+@onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 
 var last_flip_direction:int = 1
 var is_moving = false
+
+
+func _ready() -> void:
+	hurtbox_component.hit.connect(on_hit)
 
 
 func _physics_process(delta: float) -> void:
@@ -27,3 +32,7 @@ func update_flip_direction(velocity_vector: Vector2):
 
 func set_is_moving(moving: bool):
 	is_moving = moving
+
+
+func on_hit():
+	hit_random_audio_player.play_random()

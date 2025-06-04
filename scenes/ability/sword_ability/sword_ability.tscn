@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfkrpa5qceqta"]
+[gd_scene load_steps=12 format=3 uid="uid://bfkrpa5qceqta"]
 
 [ext_resource type="Script" uid="uid://bau6fjm0si3o0" path="res://scenes/ability/sword_ability/sword_ability.gd" id="1_psnup"]
 [ext_resource type="PackedScene" uid="uid://ceje4rlmxcth1" path="res://scenes/component/hitbox_component.tscn" id="2_0jnvx"]
 [ext_resource type="Texture2D" uid="uid://df6vbk8euct1f" path="res://scenes/ability/sword_ability/claw.png" id="2_t8g1f"]
+[ext_resource type="PackedScene" uid="uid://bn3e88sg2uxqu" path="res://scenes/component/hit_random_player_component.tscn" id="4_w2158"]
+[ext_resource type="AudioStream" uid="uid://bjujes2doojjk" path="res://assets/sound/03_Claw_03.wav" id="5_wumf8"]
+[ext_resource type="AudioStream" uid="uid://usnkhlu6sahl" path="res://assets/sound/08_Bite_04.wav" id="6_478bp"]
+[ext_resource type="AudioStream" uid="uid://n08rfpexrcp" path="res://assets/sound/22_Slash_04.wav" id="7_u5bql"]
 
 [sub_resource type="Animation" id="Animation_0jnvx"]
 length = 0.001
@@ -97,6 +101,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false, true]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitRandomAudioPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_random"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_psnup"]
 _data = {
@@ -126,5 +144,8 @@ offset = Vector2(0, -12)
 shape = SubResource("CircleShape2D_psnup")
 disabled = true
 debug_color = Color(0.7541, 0.456746, 0, 0.42)
+
+[node name="HitRandomAudioPlayer" parent="." instance=ExtResource("4_w2158")]
+streams = Array[AudioStream]([ExtResource("5_wumf8"), ExtResource("6_478bp"), ExtResource("7_u5bql")])
 
 [editable path="HitboxComponent"]

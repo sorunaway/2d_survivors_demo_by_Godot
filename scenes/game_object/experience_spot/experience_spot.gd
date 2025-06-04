@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var hit_random_audio_player: AudioStreamPlayer2D = $HitRandomAudioPlayer
 
 func _ready() -> void:
 	$Area2D.area_entered.connect(on_area_entered)
@@ -22,7 +22,7 @@ func tween_collect(percent: float, start_position: Vector2):
 func collect():
 	GameEvents.emit_experience_spot_collected(1)
 	animated_sprite_2d.play("dispear")
-	audio_stream_player_2d.play()
+	hit_random_audio_player.play_random()
 
 
 func disable_collision():

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c65806m5fijo2"]
+[gd_scene load_steps=14 format=3 uid="uid://c65806m5fijo2"]
 
 [ext_resource type="Script" uid="uid://cr03vqaymt66d" path="res://scenes/component/death_component.gd" id="1_874pk"]
 [ext_resource type="Texture2D" uid="uid://0ojbyxo75i62" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="1_odwwo"]
+[ext_resource type="PackedScene" uid="uid://bn3e88sg2uxqu" path="res://scenes/component/hit_random_player_component.tscn" id="3_muesg"]
 
 [sub_resource type="Animation" id="Animation_874pk"]
 length = 0.001
@@ -103,3 +104,5 @@ texture = ExtResource("1_odwwo")
 lifetime = 0.7
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_odwwo")
+
+[node name="HitRandomAudioPlayer" parent="." instance=ExtResource("3_muesg")]

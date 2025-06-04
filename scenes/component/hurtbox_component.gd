@@ -3,7 +3,10 @@ class_name HurtboxComponent
 
 @export var health_component: HealthComponent
 
+signal hit
+
 var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
+
 
 func _ready() -> void:
 	area_entered.connect(on_area_entered)
@@ -27,3 +30,5 @@ func on_area_entered(other_area: Area2D):
 	if round(hitbox_component.damage) == hitbox_component.damage:
 		format_string = "%0.0f"
 	floating_text.start(format_string % hitbox_component.damage) # 伤害值传入文本
+	
+	hit.emit()

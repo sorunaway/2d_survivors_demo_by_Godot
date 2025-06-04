@@ -96,6 +96,7 @@ func on_damage_interval_timer_timeout():
 func on_health_changed():
 	GameEvents.emit_player_damaged()
 	update_health_display()
+	$HitRandomAudioPlayer.play_random()
 
 
 # 接收到能力升级增加,能力升级的具体效果
