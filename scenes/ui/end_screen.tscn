@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcxa6eem6j7cp"]
+[gd_scene load_steps=7 format=3 uid="uid://dcxa6eem6j7cp"]
 
 [ext_resource type="Script" uid="uid://t8y51to0oyv3" path="res://scenes/ui/end_screen.gd" id="1_noxrh"]
+[ext_resource type="PackedScene" uid="uid://deu6a631f8ilp" path="res://scenes/ui/sound_button.tscn" id="2_n8r4t"]
 
 [sub_resource type="Animation" id="Animation_bd1lb"]
 length = 0.001
@@ -123,16 +124,14 @@ size_flags_vertical = 8
 text = "你坚持了下来!"
 horizontal_alignment = 1
 
-[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_n8r4t")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
 text = "重新开始"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_n8r4t")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
 text = "退出游戏"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer"]

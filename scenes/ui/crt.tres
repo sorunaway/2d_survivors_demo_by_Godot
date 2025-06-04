@@ -5,7 +5,7 @@
 [resource]
 shader = ExtResource("1_aqit1")
 shader_parameter/resolution = Vector2(640, 360)
-shader_parameter/scan_line_amount = 0.02
+shader_parameter/scan_line_amount = 0.03
 shader_parameter/warp_amount = 0.0
 shader_parameter/vignette_amount = 0.2
 shader_parameter/vignette_intensity = 0.0
