@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dngq1dj0w8pjv"]
+
+[ext_resource type="Script" uid="uid://dr2wsaeqllhsr" path="res://scenes/autoload/music_player.gd" id="1_crwak"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_crwak")
+
+[node name="MenuStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"music"
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"music"
+
+[node name="Timer" type="Timer" parent="."]

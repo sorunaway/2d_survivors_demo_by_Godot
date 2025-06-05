@@ -30,3 +30,4 @@ func on_arena_timer_timeout():
 	# 计时结束时游戏胜利结算
 	var end_screen_scene_intance = end_screen_scene.instantiate()
 	add_child(end_screen_scene_intance)
+	end_screen_scene_intance.play_jingle()

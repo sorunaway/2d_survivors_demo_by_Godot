@@ -19,6 +19,14 @@ func _ready() -> void:
 func set_defeat():
 	%TitleLabel.text = "失败"
 	%DescriptionLabel.text = "你没能坚持下来!"
+	play_jingle(true)
+
+func play_jingle(defeat: bool = false):
+	if defeat == true:
+		$DefeatStreamPlayer.play()
+	else:
+		$VictoryStreamPlayer.play()
+
 
 func on_restart_button_pressed():
 	get_tree().paused = false

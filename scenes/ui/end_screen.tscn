@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcxa6eem6j7cp"]
+[gd_scene load_steps=9 format=3 uid="uid://dcxa6eem6j7cp"]
 
 [ext_resource type="Script" uid="uid://t8y51to0oyv3" path="res://scenes/ui/end_screen.gd" id="1_noxrh"]
+[ext_resource type="AudioStream" uid="uid://b2tsvl8jo6uli" path="res://assets/sound/Jingle6.wav" id="2_53v5j"]
 [ext_resource type="PackedScene" uid="uid://deu6a631f8ilp" path="res://scenes/ui/sound_button.tscn" id="2_n8r4t"]
+[ext_resource type="AudioStream" uid="uid://ctvwg3a8fqlwk" path="res://assets/sound/GameOver.mp3" id="3_e4cmn"]
 
 [sub_resource type="Animation" id="Animation_bd1lb"]
 length = 0.001
@@ -66,6 +68,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_k541j")
 }
 autoplay = "in"
+
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_53v5j")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e4cmn")
+volume_db = 5.0
+bus = &"sfx"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

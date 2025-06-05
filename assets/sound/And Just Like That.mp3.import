@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3bh7tk8dv4f1"
+path="res://.godot/imported/And Just Like That.mp3-379b2d74ce64de0ebd3e67ab8f1bd5e6.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/And Just Like That.mp3"
+dest_files=["res://.godot/imported/And Just Like That.mp3-379b2d74ce64de0ebd3e67ab8f1bd5e6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
