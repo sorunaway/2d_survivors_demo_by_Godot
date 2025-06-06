@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2D Survivors"
-run/main_scene="uid://bh0plgufsvtht"
+run/main_scene="uid://c1fig5e0c5ua4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

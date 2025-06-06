@@ -6,4 +6,4 @@
 shader = ExtResource("1_cxvrg")
 shader_parameter/vignette_intensity = 0.2
 shader_parameter/vignette_opacity = 0.5
-shader_parameter/vignette_rgb = Color(0.404269, 0.173798, 0.173712, 1)
+shader_parameter/vignette_rgb = Color(0.25, 0.125, 0.125, 1)
