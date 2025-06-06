@@ -1,11 +1,19 @@
 extends Node
 
 
-# Called when the node enters the scene tree for the first time.
+@onready var timer: Timer = $Timer
+@onready var menu_stream_player: AudioStreamPlayer = $MenuStreamPlayer
+@onready var bgm_player: AudioStreamPlayer = $BGMPlayer
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	bgm_player.finished.connect(on_bgm_finished)
+	timer.timeout.connect(on_timeout)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_bgm_finished():
+	timer.start()
+
+
+func on_timeout():
+	bgm_player.play()
