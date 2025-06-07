@@ -1,23 +1,35 @@
 extends CanvasLayer
 
 @onready var play_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PlayButton
-@onready var option_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionButton
+@onready var options_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton
 @onready var quit_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton
+@onready var options_layer: CanvasLayer = $OptionsLayer
+
+var options_scene = preload("res://scenes/ui/options_menu.tscn")
 
 
 func _ready() -> void:
 	play_button.pressed.connect(on_play_button_pressed)
-	option_button.pressed.connect(on_option_button_pressed)
+	options_button.pressed.connect(on_options_button_pressed)
 	quit_button.pressed.connect(on_quit_button_pressed)
 
 
 func on_play_button_pressed():
+	MusicPlayer.menu_stream_player.stop()
+	MusicPlayer.bgm_player.play()
 	get_tree().change_scene_to_file("res://scenes/main/Main.tscn")
-	
 
-func on_option_button_pressed():
-	pass
+
+func on_options_button_pressed():
+	var options_instance = options_scene.instantiate()
+	add_child(options_instance)
+	#get_tree().get_node_count()  (options_instance)
+	options_instance.back_pressed.connect(on_options_closed.bind(options_instance))
 
 
 func on_quit_button_pressed():
 	get_tree().quit()
+
+
+func on_options_closed(options_instance: Node):
+	options_instance.queue_free()
