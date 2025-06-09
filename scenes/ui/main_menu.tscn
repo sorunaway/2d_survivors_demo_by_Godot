@@ -69,8 +69,6 @@ text = "设置"
 layout_mode = 2
 text = "退出游戏"
 
-[node name="OptionsLayer" type="CanvasLayer" parent="."]
-
 [node name="Vignette" parent="." instance=ExtResource("4_x2yvf")]
 
 [node name="CRT" parent="." instance=ExtResource("4_m1kxf")]

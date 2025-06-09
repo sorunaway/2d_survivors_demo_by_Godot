@@ -13,7 +13,7 @@ func _ready() -> void:
 	sfx_slider.value_changed.connect(on_audio_slider_changed.bind("sfx"))
 	music_slider.value_changed.connect(on_audio_slider_changed.bind("music"))
 	back_button.pressed.connect(on_back_pressed)
-	update_display()
+	update_display() # 更新显示模式和音量滑块位置
 
 
 func update_display():
@@ -27,15 +27,15 @@ func update_display():
 func get_bus_volume_percent(bus_name: String):
 	var bus_index = AudioServer.get_bus_index(bus_name)
 	var volume_linear = AudioServer.get_bus_volume_linear(bus_index)
-	return volume_linear
+	return volume_linear # 返回所选bus的音量值float
 
 
 func set_bus_volume_percent(bus_name: String, percent: float):
 	var bus_index = AudioServer.get_bus_index(bus_name)
-	#var volume_db = linear_to_db(percent)
 	AudioServer.set_bus_volume_linear(bus_index, percent)
 
 func on_window_button_pressed():
+	# 显示模式切换
 	var mode = DisplayServer.window_get_mode()
 	if mode != DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
