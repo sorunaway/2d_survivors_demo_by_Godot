@@ -55,6 +55,9 @@ func on_resume_pressed(): # 按按钮也调用关闭
 
 
 func on_options_pressed():
+	#ScreenTransition.transition() # 转场效果
+	#await ScreenTransition.transitioned_halfway
+	
 	var options_menu_instance = options_menu_scene.instantiate()
 	add_child(options_menu_instance)
 	options_menu_instance.back_pressed.connect(on_options_back_pressed.bind(options_menu_instance))
@@ -62,7 +65,10 @@ func on_options_pressed():
 
 func on_quit_pressed():
 	get_tree().paused = false
-	await get_tree().create_timer(0.1).timeout
+	
+	ScreenTransition.transition() # 转场效果
+	await ScreenTransition.transitioned_halfway
+	
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 
