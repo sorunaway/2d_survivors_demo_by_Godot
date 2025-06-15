@@ -192,7 +192,7 @@ _data = {
 atlas = ExtResource("5_j8h27")
 region = Rect2(3, 1, 10, 10)
 
-[node name="MetaUpgradeCard" type="PanelContainer" groups=["upgrade_card"]]
+[node name="MetaUpgradeCard" type="PanelContainer" groups=["meta_upgrade_card"]]
 custom_minimum_size = Vector2(132, 160)
 pivot_offset = Vector2(66, 80)
 script = ExtResource("1_j8h27")
@@ -274,7 +274,7 @@ mouse_filter = 2
 texture = SubResource("AtlasTexture_q14vf")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)
 text = "测试/测试"
@@ -287,7 +287,7 @@ max_value = 1.0
 value = 0.5
 show_percentage = false
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
