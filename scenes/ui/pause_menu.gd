@@ -66,6 +66,7 @@ func on_options_pressed():
 func on_quit_pressed():
 	get_tree().paused = false
 	
+	MetaProgression.save()
 	ScreenTransition.transition() # 转场效果
 	await ScreenTransition.transitioned_halfway
 	
