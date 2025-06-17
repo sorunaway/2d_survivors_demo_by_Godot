@@ -29,18 +29,10 @@ func play_jingle(defeat: bool = false):
 
 
 func on_restart_button_pressed():
+	ScreenTransition.transition_to_scene("res://Scenes/Main/Main.tscn")
 	get_tree().paused = false
-	
-	ScreenTransition.transition() # 转场效果
-	await ScreenTransition.transitioned_halfway
-	
-	get_tree().change_scene_to_file("res://Scenes/Main/Main.tscn")
 
 
 func on_quit_button_pressed():
 	get_tree().paused = false
-	
-	ScreenTransition.transition() # 转场效果
-	await ScreenTransition.transitioned_halfway
-	
-	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+	ScreenTransition.transition_to_scene("res://scenes/ui/main_menu.tscn")

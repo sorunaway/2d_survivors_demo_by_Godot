@@ -1,16 +1,21 @@
 extends CanvasLayer
 
-@onready var play_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PlayButton
-@onready var options_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/OptionsButton
-@onready var quit_button: Button = $MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitButton
+@onready var play_button: Button = %PlayButton
+@onready var upgrades_button: Button = %UpgradesButton
+@onready var options_button: Button = %OptionsButton
+@onready var quit_button: Button = %QuitButton
 
 var options_scene = preload("res://scenes/ui/options_menu.tscn")
 
 
 func _ready() -> void:
 	play_button.pressed.connect(on_play_button_pressed)
+	upgrades_button.pressed.connect(on_upgrades_button_pressed)
 	options_button.pressed.connect(on_options_button_pressed)
 	quit_button.pressed.connect(on_quit_button_pressed)
+	
+	MusicPlayer.bgm_player.stop()
+	MusicPlayer.menu_stream_player.play()
 
 
 func on_play_button_pressed():
@@ -23,8 +28,18 @@ func on_play_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main/Main.tscn")
 
 
+func on_upgrades_button_pressed():
+	MusicPlayer.menu_stream_player.stop()
+	
+	ScreenTransition.transition()
+	await ScreenTransition.transitioned_halfway
+
+	get_tree().change_scene_to_file("res://scenes/ui/meta_menu.tscn")
+
+
 func on_options_button_pressed():
-	#ScreenTransition.transition() # 转场效果
+	#转场效果预留
+	#ScreenTransition.transition()
 	#await ScreenTransition.transitioned_halfway
 	
 	var options_instance = options_scene.instantiate()

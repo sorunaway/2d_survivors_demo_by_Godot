@@ -9,7 +9,13 @@ func _ready() -> void:
 
 
 func on_died():
-	if randf() > drop_percent:
+	var adjusted_drop_percent = drop_percent
+	var experience_gain_upgrade_count = MetaProgression.get_upgrade_count("experience_gain")
+	if experience_gain_upgrade_count > 0:
+		adjusted_drop_percent += .1 
+	
+	#0-1之前随机取，如果大于概率，则返回(也就是说概率越大，越不容易返回)
+	if randf() > adjusted_drop_percent:
 		return
 	
 	if spot_scene == null:

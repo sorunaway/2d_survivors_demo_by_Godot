@@ -58,18 +58,22 @@ theme_override_font_sizes/font_size = 30
 text = "哈基米吸欧金金"
 
 [node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "开始游戏"
 
-[node name="UpgradesButton2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
+[node name="UpgradesButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "能力升级"
 
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "设置"
 
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "退出游戏"
 
