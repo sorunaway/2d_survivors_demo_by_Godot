@@ -61,6 +61,10 @@ text = "哈基米吸欧金金"
 layout_mode = 2
 text = "开始游戏"
 
+[node name="UpgradesButton2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
+layout_mode = 2
+text = "能力升级"
+
 [node name="OptionsButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_fe2o3")]
 layout_mode = 2
 text = "设置"

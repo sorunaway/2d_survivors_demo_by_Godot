@@ -37,6 +37,8 @@ window/stretch/mode="canvas_items"
 [gui]
 
 theme/custom="uid://d1ohceo06kk7u"
+theme/custom_font="uid://cc23j05lvgocb"
+theme/default_font_generate_mipmaps=true
 
 [input]
 
