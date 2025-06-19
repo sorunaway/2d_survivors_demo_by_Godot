@@ -136,7 +136,7 @@ size_flags_vertical = 8
 text = "你坚持了下来!"
 horizontal_alignment = 1
 
-[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_n8r4t")]
+[node name="ContinueButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_n8r4t")]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.521569, 0.333333, 0.360784, 1)

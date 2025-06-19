@@ -4,7 +4,7 @@ var meta_upgrade_card_scene = preload("res://scenes/ui/meta_upgrade_card.tscn")
 
 @export var upgrades: Array[MetaUpgrade]
 
-@onready var grid_container: GridContainer = $MarginContainer/VBoxContainer/GridContainer
+@onready var grid_container: GridContainer = $MarginContainer/VBoxContainer/ScrollContainer/GridContainer
 @onready var back_button: Button = $MarginContainer/VBoxContainer/BackButton
 
 

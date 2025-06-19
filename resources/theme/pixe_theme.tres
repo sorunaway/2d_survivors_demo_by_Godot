@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://d1ohceo06kk7u"]
+[gd_resource type="Theme" load_steps=22 format=3 uid="uid://d1ohceo06kk7u"]
 
 [ext_resource type="Texture2D" uid="uid://bequkxaqaq0p7" path="res://assets/ui/ui.png" id="1_pgmju"]
 [ext_resource type="FontFile" uid="uid://cc23j05lvgocb" path="res://resources/theme/MyPixelFont.ttf" id="2_pgmju"]
@@ -101,6 +101,46 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.180392, 0.109804, 0.12549, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ia27"]
+texture = ExtResource("1_pgmju")
+texture_margin_left = 2.0
+texture_margin_top = 4.0
+texture_margin_right = 2.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(357, 69, 7, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nbef"]
+texture = ExtResource("1_pgmju")
+texture_margin_left = 2.0
+texture_margin_top = 4.0
+texture_margin_right = 2.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(373, 69, 7, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i42bb"]
+texture = ExtResource("1_pgmju")
+texture_margin_left = 2.0
+texture_margin_top = 4.0
+texture_margin_right = 2.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(341, 69, 7, 18)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ltvbv"]
+texture = ExtResource("1_pgmju")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(340, 21, 8, 38)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lfpr1"]
+texture = ExtResource("1_pgmju")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 1.0
+region_rect = Rect2(340, 21, 8, 38)
+
 [resource]
 default_font = ExtResource("2_pgmju")
 default_font_size = 15
@@ -123,3 +163,8 @@ Label/constants/line_spacing = 0
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_oqsyt")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_wme48")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_oiefj")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_4ia27")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxTexture_1nbef")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxTexture_i42bb")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_ltvbv")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxTexture_lfpr1")

@@ -29,8 +29,6 @@ func on_play_button_pressed():
 
 
 func on_upgrades_button_pressed():
-	MusicPlayer.menu_stream_player.stop()
-	
 	ScreenTransition.transition()
 	await ScreenTransition.transitioned_halfway
 

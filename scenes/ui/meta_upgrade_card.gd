@@ -4,7 +4,7 @@ extends PanelContainer
 @onready var name_label: Label = $MarginContainer/VBoxContainer/PanelContainer/NameLabel
 @onready var description_label: Label = $MarginContainer/VBoxContainer/DescriptionLabel
 @onready var progress_bar: ProgressBar = $MarginContainer/VBoxContainer/VBoxContainer/ProgressBar
-@onready var purchase_button: Button = $MarginContainer/VBoxContainer/PurchaseButton
+@onready var purchase_button: Button = %PurchaseButton
 @onready var progress_label: Label = %ProgressLabel
 @onready var count_label: Label = %CountLabel
 
@@ -14,8 +14,6 @@ var upgrade: MetaUpgrade
 
 func _ready() -> void:
 	purchase_button.pressed.connect(on_purchase_button_pressed)
-	# 连接GUI输入信号
-	gui_input.connect(on_gui_input)
 
 
 # 获取升级技能数据，应用卡片UI描述
@@ -42,16 +40,6 @@ func update_progress():
 	progress_label.text = str(currency) + "/" + str(upgrade.experience_cost)
 	
 	count_label.text = "等级: %d" % current_quantity
-
-
-func select_card():
-	$AnimationPlayer.play("selected")
-
-
-# 当检测到GUI输入信号，发送“已选择”信号
-func on_gui_input(event: InputEvent):
-	if event.is_action_pressed("left_click"):
-		select_card()
 
 
 func on_purchase_button_pressed():

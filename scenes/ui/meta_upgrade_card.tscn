@@ -193,7 +193,7 @@ atlas = ExtResource("5_j8h27")
 region = Rect2(3, 1, 10, 10)
 
 [node name="MetaUpgradeCard" type="PanelContainer" groups=["meta_upgrade_card"]]
-custom_minimum_size = Vector2(132, 160)
+custom_minimum_size = Vector2(172, 220)
 pivot_offset = Vector2(66, 80)
 script = ExtResource("1_j8h27")
 
@@ -223,7 +223,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(148, 0)
 layout_mode = 2
 mouse_filter = 2
 
@@ -245,20 +245,28 @@ autowrap_mode = 2
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(108, 16)
 layout_mode = 2
+size_flags_vertical = 2
 theme_override_colors/font_color = Color(0.52, 0.3328, 0.36088, 1)
 theme_override_constants/shadow_offset_x = 1
 text = "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
 autowrap_mode = 2
 
-[node name="Container" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 2)
-layout_mode = 2
-mouse_filter = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 mouse_filter = 2
 theme_override_constants/separation = 0
+
+[node name="Cost_Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(108, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.52, 0.3328, 0.36088, 1)
+theme_override_constants/shadow_offset_x = 1
+text = "花费:"
+vertical_alignment = 2
+autowrap_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -295,8 +303,9 @@ value = 0.5
 show_percentage = false
 
 [node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 text = "购买"
