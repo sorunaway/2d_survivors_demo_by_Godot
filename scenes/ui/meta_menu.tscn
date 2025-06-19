@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://bo6q2mtb5vaic"]
+[gd_scene load_steps=8 format=4 uid="uid://bo6q2mtb5vaic"]
 
 [ext_resource type="Script" uid="uid://crvctpe24rqpy" path="res://scenes/ui/meta_menu.gd" id="1_1fp8g"]
 [ext_resource type="TileSet" uid="uid://c7rrbbdyuk1g2" path="res://resources/tile_set.tres" id="2_5fsrx"]
 [ext_resource type="Script" uid="uid://bmt2273qmn8ws" path="res://resources/meta_upgrades/meta_upgrade.gd" id="2_xe1at"]
 [ext_resource type="Resource" uid="uid://de65um4cgy5ag" path="res://resources/meta_upgrades/experience_gain.tres" id="3_tykgm"]
-[ext_resource type="PackedScene" uid="uid://csm85cdvraf8e" path="res://scenes/ui/meta_upgrade_card.tscn" id="5_b8kpi"]
 [ext_resource type="PackedScene" uid="uid://deu6a631f8ilp" path="res://scenes/ui/sound_button.tscn" id="5_xe1at"]
 [ext_resource type="PackedScene" uid="uid://df2d7qpqu8emu" path="res://scenes/ui/crt.tscn" id="6_w0aax"]
 [ext_resource type="PackedScene" uid="uid://b8n7igv3drkv8" path="res://scenes/ui/vignette.tscn" id="7_b8kpi"]
@@ -41,22 +40,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 theme_override_constants/h_separation = 8
-columns = 3
-
-[node name="MetaUpgradeCard" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("5_b8kpi")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard2" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("5_b8kpi")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard3" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("5_b8kpi")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard4" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("5_b8kpi")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard5" parent="MarginContainer/VBoxContainer/ScrollContainer/GridContainer" instance=ExtResource("5_b8kpi")]
-layout_mode = 2
+columns = 100
 
 [node name="BackButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("5_xe1at")]
 custom_minimum_size = Vector2(80, 24)

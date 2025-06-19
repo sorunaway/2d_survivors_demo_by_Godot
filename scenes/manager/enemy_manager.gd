@@ -30,8 +30,9 @@ func get_spawn_position():
 	for i in 4:
 		# 随机刷新位置
 		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
+		var additional_check_offset = random_direction * 20
 		#检查从玩家位置到待生成点之间的射线是否被物理层阻挡
-		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position, 1)
+		var query_parameters = PhysicsRayQueryParameters2D.create(player.global_position, spawn_position + additional_check_offset, 1)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
 	
 		if result.is_empty():
