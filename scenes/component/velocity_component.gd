@@ -34,7 +34,6 @@ func accelerate_in_direction(direction: Vector2):
 		velocity = velocity.lerp(desired_velocity, 1 - exp(-deceleration * get_process_delta_time()))
 
 
-
 # 减速
 func decelerate():
 	accelerate_in_direction(Vector2.ZERO)
