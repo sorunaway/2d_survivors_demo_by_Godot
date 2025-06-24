@@ -7,4 +7,3 @@ void fragment() {
 	vec4 final_color = mix(texture_color, vec4(1.0, 1.0, 1.0, texture_color.a), lerp_percent);
 	COLOR = final_color;
 }
-
