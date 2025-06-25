@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://b6g1xrrsw8y30"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_6pcyx"]
+
+[resource]
+script = ExtResource("1_6pcyx")
+id = "anvil_count"
+max_quantity = 2
+name = "多重铁毡"
+description = "额外落下一个铁毡"
