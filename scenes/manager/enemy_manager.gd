@@ -11,6 +11,7 @@ const SPAWN_RADIUS = 400
 
 var base_spawn_time = 0
 var enemy_table = WeightedTable.new()
+var number_to_spawn = 1
 
 
 func _ready() -> void:
@@ -53,23 +54,26 @@ func on_timer_timeout():
 	if player == null:
 		return
 	
-	var enemy_scene = enemy_table.pick_item()
-	var enemy_node = enemy_scene.instantiate() as Node2D
-	
-	#添加到实体层 
-	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	entities_layer.add_child(enemy_node)
-	enemy_node.global_position = get_spawn_position()
+	for i in number_to_spawn:
+		var enemy_scene = enemy_table.pick_item()
+		var enemy_node = enemy_scene.instantiate() as Node2D
+		
+		#添加到实体层 
+		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+		entities_layer.add_child(enemy_node)
+		enemy_node.global_position = get_spawn_position()
 
 
 func on_arena_difficulty_increased(arena_difficulty: int):
 	# 难度增加 刷怪加快
-	var time_off = (0.1 / 10) * arena_difficulty
-	time_off = min(time_off, 0.98)
-	timer.wait_time = 1 - time_off
+	var time_off = (0.1 / 12) * arena_difficulty
+	time_off = min(time_off, 0.7)
+	timer.wait_time = base_spawn_time - time_off
 	
 	if arena_difficulty == 6:
 		enemy_table.add_item(snake_enemy_scene, 15)
 	elif arena_difficulty == 12:
 		enemy_table.add_item(bat_enemy_scene, 8)
 	
+	if arena_difficulty % 6 == 0:
+		number_to_spawn += 1

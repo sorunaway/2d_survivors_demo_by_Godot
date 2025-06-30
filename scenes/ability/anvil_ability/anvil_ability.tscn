@@ -1,8 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbvy2472beopv"]
+[gd_scene load_steps=14 format=3 uid="uid://cbvy2472beopv"]
 
 [ext_resource type="Script" uid="uid://bgq3rfcycjrav" path="res://scenes/ability/anvil_ability/anvil_ability.gd" id="1_4tak5"]
 [ext_resource type="Texture2D" uid="uid://cpp1i3wiy4b4t" path="res://scenes/ability/anvil_ability/anvil_ability.png" id="1_ojf54"]
 [ext_resource type="PackedScene" uid="uid://ceje4rlmxcth1" path="res://scenes/component/hitbox_component.tscn" id="2_vp76q"]
+[ext_resource type="Texture2D" uid="uid://bvmrwgr807r7a" path="res://scenes/ability/anvil_ability/dust.png" id="4_1311l"]
+
+[sub_resource type="Gradient" id="Gradient_1311l"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.572727)
+colors = PackedColorArray(0.922615, 0.948788, 0.999999, 1, 0.854902, 0.929412, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m0lxl"]
+gradient = SubResource("Gradient_1311l")
+
+[sub_resource type="Curve" id="Curve_m0lxl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0), 8.4064, 8.4064, 0, 0, Vector2(0.227941, 1), 0.0, 0.0, 0, 0, Vector2(0.507353, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_vsum4"]
+curve = SubResource("Curve_m0lxl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t41ol"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 180.0
+initial_velocity_min = 300.0
+initial_velocity_max = 400.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1500.0
+damping_max = 1750.0
+scale_min = 0.6
+scale_curve = SubResource("CurveTexture_vsum4")
+color_initial_ramp = SubResource("GradientTexture1D_m0lxl")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0eksu"]
 radius = 32.0
@@ -57,10 +88,22 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vp76q"]
 resource_name = "hit"
-length = 0.6
+length = 0.8
 loop_mode = 1
 step = 0.05
 tracks/0/type = "value"
@@ -70,10 +113,10 @@ tracks/0/path = NodePath("Visuals:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.25, 0.3, 0.55),
+"times": PackedFloat32Array(0, 0.2, 0.25, 0.3, 0.7),
 "transitions": PackedFloat32Array(2, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -100), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, 0)]
+"values": [Vector2(0, -100), Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -82,10 +125,10 @@ tracks/1/path = NodePath("Visuals:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0521031, 0.2, 0.22, 0.26, 0.3, 0.32, 0.35, 0.45, 0.55),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0521031, 0.2, 0.25, 0.3, 0.35, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 0.8), Vector2(0.9, 1.1), Vector2(0.9, 1.1), Vector2(1.05, 0.95), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 0.8), Vector2(0.9, 1.1), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -106,12 +149,24 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"queue_free"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wq6p8"]
@@ -122,6 +177,19 @@ _data = {
 
 [node name="AnvilAbility" type="Node2D"]
 script = ExtResource("1_4tak5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(3, 0)
+emitting = false
+amount = 30
+texture = ExtResource("4_1311l")
+lifetime = 0.25
+one_shot = true
+explosiveness = 0.96
+fixed_fps = 0
+interpolate = false
+trail_lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_t41ol")
 
 [node name="Visuals" type="Node2D" parent="."]
 
