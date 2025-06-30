@@ -53,9 +53,10 @@ tile_set = ExtResource("1_qtv3y")
 [node name="Entities" type="Node2D" parent="." groups=["entities_layer"]]
 y_sort_enabled = true
 
-[node name="Player" parent="Entities" instance=ExtResource("2_rwgxs")]
+[node name="Player" parent="Entities" node_paths=PackedStringArray("arena_timer_manager") instance=ExtResource("2_rwgxs")]
 unique_name_in_owner = true
 position = Vector2(512, 512)
+arena_timer_manager = NodePath("../../ArenaTimeManager")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Entities/Player"]
 remote_path = NodePath("../../../GameCamera")

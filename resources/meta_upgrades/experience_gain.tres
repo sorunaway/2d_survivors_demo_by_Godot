@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_j6tqy")
 id = "experience_gain"
-max_quantity = 1
+max_quantity = 5
 experience_cost = 100
 title = "经验掉率增加"
 description = "增加击杀敌人时经验球的掉落几率"

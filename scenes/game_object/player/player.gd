@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-#const MAXSPEED = 100
-#const ACCELERATION = 1200
-#const DECELERATION = 1800
+@export var arena_timer_manager : Node
 
 @onready var damage_interval_timer: Timer = $DamageIntervalTimer
 @onready var health_component: HealthComponent = $HealthComponent
@@ -25,9 +23,11 @@ func _ready() -> void:
 	pickup_range = pickup_area_shape.shape.radius
 	
 	# 连接信号
+	arena_timer_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
 	$HurtArea2D.body_entered.connect(on_body_entered)
 	$HurtArea2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
+	health_component.health_decreased.connect(on_health_decreased)
 	health_component.health_changed.connect(on_health_changed)
 	GameEvents.ability_upgrades_added.connect(on_ability_upgrades_added)
 	update_health_display()
@@ -93,10 +93,13 @@ func on_damage_interval_timer_timeout():
 
 
 # 接收到HP变化，更新HPUI显示
-func on_health_changed():
+func on_health_decreased():
 	GameEvents.emit_player_damaged()
-	update_health_display()
 	$HitRandomAudioPlayer.play_random()
+	
+
+func on_health_changed():
+	update_health_display()
 
 
 # 接收到能力升级增加,能力升级的具体效果
@@ -110,3 +113,12 @@ func on_ability_upgrades_added(ability_upgrade: AbilityUpgrade, current_upgrades
 		velocity_component.max_speed = base_speed + (current_upgrades["player_speed"]["quantity"] * 10)
 	elif ability_upgrade.id == "pickup_range":
 		pickup_area_shape.shape.radius = pickup_range + (pickup_range * current_upgrades["pickup_range"]["quantity"] * 0.5)
+
+
+# 自动恢复能力接受经过时间信号
+func on_arena_difficulty_increased(difficulty: int):
+	var health_regeneration_quantity = MetaProgression.get_upgrade_count("health_regeneration")
+	if health_regeneration_quantity > 0:
+		var is_thirty_second_interval = (difficulty % (6 / health_regeneration_quantity)) == 0
+		if is_thirty_second_interval:
+			health_component.heal(1)
