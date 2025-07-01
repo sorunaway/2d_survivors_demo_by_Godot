@@ -4,8 +4,8 @@ const MAX_RANGE = 150
 
 @export var anvil_ability_scene:PackedScene
 
-#var base_attack_speed = 0.5
-#var current_attack_speed = base_attack_speed
+var base_attack_speed = 0.3
+var current_attack_speed = base_attack_speed
 var base_damage: float = 20.0
 var additional_damage_percent = 1
 var anvil_count = 0
@@ -13,7 +13,7 @@ var anvil_count = 0
 
 func _ready() -> void:
 	$PrepareAttack.timeout.connect(on_prepare_attack_timeout)
-	#$Cooldown.wait_time = 1/current_attack_speed
+	$PrepareAttack.wait_time = 1/current_attack_speed
 	GameEvents.ability_upgrades_added.connect(on_ability_upgrade_added)
 
 
@@ -42,12 +42,14 @@ func on_prepare_attack_timeout():
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "anvil_count":
 		anvil_count = current_upgrades["anvil_count"]["quantity"]
-	## 攻速增加10%
-	#if upgrade.id == "anvil_rate":
-		#var percent_reduction = current_upgrades["anvil_rate"]["quantity"] * 0.1
-		#current_attack_speed += base_attack_speed * percent_reduction
-		#$Cooldown.wait_time = 1/current_attack_speed
-		#$Cooldown.start()
-	## 伤害增加30%
-	#elif upgrade.id == "anvil_damage":
-		#additional_damage_percent = 1 + (current_upgrades["anvil_damage"]["quantity"] * 0.3)
+	# 攻速增加10%
+	if upgrade.id == "anvil_rate":
+		var percent_reduction = current_upgrades["anvil_rate"]["quantity"] * 0.1
+		
+		current_attack_speed += base_attack_speed * percent_reduction
+		$PrepareAttack.wait_time = 1/current_attack_speed
+		$PrepareAttack.start()
+
+	# 伤害增加20%
+	elif upgrade.id == "anvil_damage":
+		additional_damage_percent = 1 + (current_upgrades["anvil_damage"]["quantity"] * 0.2)

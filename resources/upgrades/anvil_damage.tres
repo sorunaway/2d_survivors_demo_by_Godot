@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://diwucvwnvepfq"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_rjd08"]
+
+[resource]
+script = ExtResource("1_rjd08")
+id = "anvil_damage"
+max_quantity = 5
+name = "铁毡伤害"
+description = "铁毡伤害增加20%."

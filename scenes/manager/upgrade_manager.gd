@@ -15,6 +15,8 @@ var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 var upgrade_pickup_range = preload("res://resources/upgrades/pickup_range.tres")
 var upgrade_anvil = preload("res://resources/upgrades/anvil.tres")
 var upgrade_anvil_count = preload("res://resources/upgrades/anvil_count.tres")
+var upgrade_anvil_damage = preload("res://resources/upgrades/anvil_damage.tres")
+var upgrade_anvil_rate = preload("res://resources/upgrades/anvil_rate.tres")
 
 
 
@@ -58,8 +60,8 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_axe_rate, 10)
 	elif chosen_upgrade.id == upgrade_anvil.id:
 		upgrade_pool.add_item(upgrade_anvil_count, 10)
-		#upgrade_pool.add_item(upgrade_anvil_damage, 10)
-		#upgrade_pool.add_item(upgrade_anvil_rate, 10)
+		upgrade_pool.add_item(upgrade_anvil_damage, 10)
+		upgrade_pool.add_item(upgrade_anvil_rate, 10)
 
 
 func pick_upgrades():
