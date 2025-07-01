@@ -272,4 +272,4 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.52, 0.3328, 0.36088, 1)
 theme_override_constants/shadow_offset_x = 1
 text = "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试"
-autowrap_mode = 2
+autowrap_mode = 3
