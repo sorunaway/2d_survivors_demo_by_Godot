@@ -18,7 +18,13 @@ var last_flip_direction: int = 1 # 初始方向右
 var base_speed = 0
 var pickup_range = 0.0
 
+
 func _ready() -> void:
+	var max_health_quantity = MetaProgression.get_upgrade_count("max_health")
+	if max_health_quantity > 0:
+		health_component.current_max_health =  health_component.max_health + 2 * max_health_quantity
+		health_component.current_health =  health_component.current_max_health
+	
 	base_speed = velocity_component.max_speed
 	pickup_range = pickup_area_shape.shape.radius
 	
