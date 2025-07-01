@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://bqd7lcxt3ljar"]
+
+[ext_resource type="Script" uid="uid://bmt2273qmn8ws" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_pk4mr"]
+
+[resource]
+script = ExtResource("1_pk4mr")
+id = "max_health"
+max_quantity = 10
+experience_cost = 50
+title = "最大生命值"
+description = "最大生命值提升(2x技能等级)点"
