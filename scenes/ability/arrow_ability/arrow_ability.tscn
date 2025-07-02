@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgciv5cei70y4"]
+
+[ext_resource type="Texture2D" uid="uid://dftqwssrc3fk5" path="res://scenes/ability/arrow_ability/arrow.png" id="1_08osu"]
+[ext_resource type="PackedScene" uid="uid://ceje4rlmxcth1" path="res://scenes/component/hitbox_component.tscn" id="4_su348"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08osu"]
+size = Vector2(16, 10)
+
+[node name="ArrowAbility" type="Node2D"]
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+texture = ExtResource("1_08osu")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("4_su348")]
+
+[node name="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_08osu")
+disabled = true
+
+[editable path="HitboxComponent"]
