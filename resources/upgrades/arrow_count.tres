@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://bo2r1d28d5ik5"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_c22mr"]
+
+[resource]
+script = ExtResource("1_c22mr")
+id = "arrow_count"
+max_quantity = 3
+name = "弓箭连射"
+description = "额外发射一支箭矢"

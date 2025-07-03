@@ -6,7 +6,7 @@ const MAX_RANGE = 120
 
 var base_attack_speed = 0.5
 var current_attack_speed = base_attack_speed
-var base_damage: float = 5.0
+var base_damage: float = 8.0
 var additional_damage_percent = 1
 
 
@@ -66,4 +66,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		$Cooldown.start()
 	# 伤害增加30%
 	elif upgrade.id == "sword_damage":
-		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.3)
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.4)

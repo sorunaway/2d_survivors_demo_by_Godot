@@ -43,7 +43,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	if upgrade.id == "anvil_count":
 		anvil_count = current_upgrades["anvil_count"]["quantity"]
 	# 攻速增加10%
-	if upgrade.id == "anvil_rate":
+	elif upgrade.id == "anvil_rate":
 		var percent_reduction = current_upgrades["anvil_rate"]["quantity"] * 0.1
 		
 		current_attack_speed += base_attack_speed * percent_reduction
