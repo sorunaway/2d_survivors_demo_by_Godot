@@ -64,12 +64,12 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_axe_rate, 10)
 	
 	elif chosen_upgrade.id == upgrade_anvil.id:
-		upgrade_pool.add_item(upgrade_anvil_count, 10)
+		upgrade_pool.add_item(upgrade_anvil_count, 8)
 		upgrade_pool.add_item(upgrade_anvil_damage, 10)
 		upgrade_pool.add_item(upgrade_anvil_rate, 10)
 	
 	elif chosen_upgrade.id == upgrade_arrow.id:
-		upgrade_pool.add_item(upgrade_arrow_count, 10)
+		upgrade_pool.add_item(upgrade_arrow_count, 8)
 		upgrade_pool.add_item(upgrade_arrow_damage, 10)
 		upgrade_pool.add_item(upgrade_arrow_rate, 10)
 
