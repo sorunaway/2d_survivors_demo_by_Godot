@@ -20,6 +20,7 @@ func play_in(delay: float = 0):
 
 
 func play_discard():
+	disabled = true
 	$AnimationPlayer.play("discard")
 
 
