@@ -13,7 +13,6 @@ func on_died():
 	var experience_gain_upgrade_count = MetaProgression.get_upgrade_count("experience_gain")
 	if experience_gain_upgrade_count > 0:
 		adjusted_drop_percent = adjusted_drop_percent * (1 + (experience_gain_upgrade_count * 0.2))
-		print(adjusted_drop_percent)
 	
 	#0-1之前随机取，如果大于概率，则返回(也就是说概率越大，越不容易返回)
 	if randf() > adjusted_drop_percent:

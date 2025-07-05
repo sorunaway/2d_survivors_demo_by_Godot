@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://co4de4yn36jty"]
 
-[ext_resource type="Script" uid="uid://gxon5ecnsivs" path="res://scenes/ability/arrow_ability_controller/arrow_abillity_controller.gd" id="1_3f3al"]
+[ext_resource type="Script" uid="uid://gxon5ecnsivs" path="res://scenes/ability/arrow_ability_controller/arrow_ability_controller.gd" id="1_3f3al"]
 [ext_resource type="PackedScene" uid="uid://dgciv5cei70y4" path="res://scenes/ability/arrow_ability/arrow_ability.tscn" id="2_ian6a"]
 
-[node name="ArrowAbillityController" type="Node"]
+[node name="ArrowAbilityController" type="Node"]
 script = ExtResource("1_3f3al")
 arrow_ability_scene = ExtResource("2_ian6a")
 

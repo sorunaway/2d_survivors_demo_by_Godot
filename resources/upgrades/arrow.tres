@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="NewAbility" load_steps=3 format=3 uid="uid://kbpg5altwum7"]
 
-[ext_resource type="PackedScene" uid="uid://co4de4yn36jty" path="res://scenes/ability/arrow_ability_controller/arrow_abillity_controller.tscn" id="1_vlic3"]
+[ext_resource type="PackedScene" uid="uid://co4de4yn36jty" path="res://scenes/ability/arrow_ability_controller/arrow_ability_controller.tscn" id="1_vlic3"]
 [ext_resource type="Script" uid="uid://ys1s6bwxnieu" path="res://resources/upgrades/new_ability.gd" id="2_iijcs"]
 
 [resource]

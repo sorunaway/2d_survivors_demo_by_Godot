@@ -7,6 +7,8 @@ var current_attack_speed = base_attack_speed
 var base_damage: float = 4.0
 var additional_damage_percent = 1
 var arrow_count = 0
+var damage_upgrade = 0.0
+var range_upgrade = 0.0
 
 
 func _ready() -> void:
@@ -25,8 +27,12 @@ func on_prepare_attack_timeout():
 		var arrow_ability = arrow_ability_scene.instantiate()
 		get_tree().get_first_node_in_group("foreground_layer").add_child(arrow_ability)
 		arrow_ability.global_position = player.global_position
+		
+		#arrow_ability.max_percent = 1.0 + damage_upgrade
+		arrow_ability.damage_upgrade_range = range_upgrade
+		
 		arrow_ability.hitbox_component.damage = base_damage * additional_damage_percent
-		await get_tree().create_timer(0.15).timeout
+		await get_tree().create_timer(0.1).timeout
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
@@ -42,4 +48,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 
 	# 伤害增加30%
 	elif upgrade.id == "arrow_damage":
-		additional_damage_percent = 1 + (current_upgrades["arrow_damage"]["quantity"] * 0.3)
+		var damage_quantity = current_upgrades["arrow_damage"]["quantity"]
+		additional_damage_percent = 1 + (damage_quantity * 0.3)
+		range_upgrade = damage_quantity * 30
+		

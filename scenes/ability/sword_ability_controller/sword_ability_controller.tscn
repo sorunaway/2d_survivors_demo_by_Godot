@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://o15gfwgrbunk"]
+
+[ext_resource type="Script" uid="uid://th51wltimx8y" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.gd" id="1_e8bxv"]
+[ext_resource type="PackedScene" uid="uid://bfkrpa5qceqta" path="res://scenes/ability/sword_ability/sword_ability.tscn" id="2_rfe3v"]
+
+[node name="SwordAbilityController" type="Node"]
+script = ExtResource("1_e8bxv")
+sword_ability = ExtResource("2_rfe3v")
+
+[node name="PrepareAttack" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true

@@ -8,6 +8,8 @@ var base_attack_speed = 0.5
 var current_attack_speed = base_attack_speed
 var base_damage: float = 8.0
 var additional_damage_percent = 1
+var upgrade_scale = Vector2.ZERO
+var base_scale = Vector2.ONE
 
 
 func _ready() -> void:
@@ -52,6 +54,7 @@ func on_prepare_attack_timeout():
 		# 位置偏移角度
 		sword_instance.global_position = enemies[0].global_position - (sword_direction.normalized() * 12)
 		sword_instance.rotation = sword_direction.angle()
+		sword_instance.scale = base_scale + upgrade_scale
 		
 		$Cooldown.start()
 	
@@ -66,4 +69,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		$Cooldown.start()
 	# 伤害增加30%
 	elif upgrade.id == "sword_damage":
-		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * 0.4)
+		var damage_quantity = current_upgrades["sword_damage"]["quantity"]
+		additional_damage_percent = 1 + (damage_quantity * 0.4)
+		upgrade_scale = Vector2(damage_quantity * 0.1, damage_quantity * 0.1)

@@ -23,11 +23,9 @@ curve = SubResource("Curve_m0lxl")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t41ol"]
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
-angle_min = 1.07288e-05
-angle_max = 1.07288e-05
 spread = 180.0
-initial_velocity_min = 300.0
-initial_velocity_max = 400.0
+initial_velocity_min = 340.0
+initial_velocity_max = 380.0
 gravity = Vector3(0, 0, 0)
 damping_min = 1500.0
 damping_max = 1750.0
@@ -36,7 +34,7 @@ scale_curve = SubResource("CurveTexture_vsum4")
 color_initial_ramp = SubResource("GradientTexture1D_m0lxl")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0eksu"]
-radius = 32.0
+radius = 40.0
 
 [sub_resource type="Animation" id="Animation_0eksu"]
 length = 0.001

@@ -13,6 +13,9 @@ func _ready() -> void:
 
 # 获得传输的随机升级，查找并实例化每一个卡片界面
 func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
+	if upgrades.size() == 0:
+		return
+	
 	var delay = 0
 	for upgrade in upgrades:
 		var card_instance = upgrade_card_scene.instantiate()

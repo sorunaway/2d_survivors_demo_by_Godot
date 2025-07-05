@@ -2,13 +2,15 @@ extends Node
 
 const MAX_RANGE = 150
 
-@export var anvil_ability_scene:PackedScene
+@export var anvil_ability_scene: PackedScene
 
 var base_attack_speed = 0.3
 var current_attack_speed = base_attack_speed
 var base_damage: float = 20.0
 var additional_damage_percent = 1
 var anvil_count = 0
+var upgrade_scale = Vector2.ZERO
+var base_scale = Vector2.ONE
 
 
 func _ready() -> void:
@@ -32,9 +34,10 @@ func on_prepare_attack_timeout():
 		if !result.is_empty():
 			spawn_position = result["position"]
 		
-		var anvil_ability = anvil_ability_scene.instantiate()
+		var anvil_ability = anvil_ability_scene.instantiate() as Node2D
 		get_tree().get_first_node_in_group("foreground_layer").add_child(anvil_ability)
 		anvil_ability.global_position = spawn_position
+		anvil_ability.scale = base_scale + upgrade_scale
 		anvil_ability.hitbox_component.damage = base_damage * additional_damage_percent
 		await get_tree().create_timer(0.2).timeout
 
@@ -52,4 +55,6 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 
 	# 伤害增加20%
 	elif upgrade.id == "anvil_damage":
-		additional_damage_percent = 1 + (current_upgrades["anvil_damage"]["quantity"] * 0.2)
+		var damage_quantity = current_upgrades["anvil_damage"]["quantity"]
+		additional_damage_percent = 1 + (damage_quantity * 0.2)
+		upgrade_scale = Vector2(damage_quantity * 0.2, damage_quantity * 0.2)

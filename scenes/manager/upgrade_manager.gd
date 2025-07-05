@@ -28,7 +28,7 @@ func _ready() -> void:
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_arrow, 10)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 10)
+	upgrade_pool.add_item(upgrade_sword_damage, 100)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_pickup_range, 5)
 	
