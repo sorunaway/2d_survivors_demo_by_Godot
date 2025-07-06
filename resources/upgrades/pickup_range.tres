@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_enhw4")
 id = "pickup_range"
-max_quantity = 3
+max_quantity = 4
 name = "大口袋"
-description = "拾取范围增加10"
+description = "拾取范围增加40"

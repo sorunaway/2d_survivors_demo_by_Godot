@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://d7xp1boi8al2"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_dsb2q"]
+
+[resource]
+script = ExtResource("1_dsb2q")
+id = "axe_count"
+max_quantity = 2
+name = "额外飞斧"
+description = "额外投掷一把飞斧"
