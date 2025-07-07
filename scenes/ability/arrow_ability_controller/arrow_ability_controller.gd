@@ -9,6 +9,8 @@ var additional_damage_percent = 1
 var arrow_count = 0
 var damage_upgrade = 0.0
 var range_upgrade = 0.0
+var upgrade_scale = Vector2.ZERO
+var base_scale = Vector2.ONE
 
 
 func _ready() -> void:
@@ -30,7 +32,7 @@ func on_prepare_attack_timeout():
 		
 		#arrow_ability.max_percent = 1.0 + damage_upgrade
 		arrow_ability.damage_upgrade_range = range_upgrade
-		
+		arrow_ability.scale = base_scale + upgrade_scale
 		arrow_ability.hitbox_component.damage = base_damage * additional_damage_percent
 		await get_tree().create_timer(0.1).timeout
 
@@ -51,4 +53,4 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		var damage_quantity = current_upgrades["arrow_damage"]["quantity"]
 		additional_damage_percent = 1 + (damage_quantity * 0.3)
 		range_upgrade = damage_quantity * 30
-		
+		upgrade_scale = Vector2(damage_quantity * 0.1, damage_quantity * 0.1)
