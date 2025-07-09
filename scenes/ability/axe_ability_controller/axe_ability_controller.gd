@@ -36,10 +36,9 @@ func on_prepare_attack_timeout():
 		var axe_instance = axe_ability.instantiate() as Node2D
 		foreground_layer.add_child(axe_instance)
 		axe_instance.global_position = player.global_position
-		axe_ability.scale = base_scale + upgrade_scale
+		axe_instance.scale = base_scale + upgrade_scale
 		axe_instance.additional_rotation = i * (TAU / total_axes)
 		axe_instance.hitbox_component.damage = base_damage * additional_damage_percent
-
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):

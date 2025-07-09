@@ -22,6 +22,7 @@ var upgrade_arrow = preload("res://resources/upgrades/arrow.tres")
 var upgrade_arrow_count = preload("res://resources/upgrades/arrow_count.tres")
 var upgrade_arrow_damage = preload("res://resources/upgrades/arrow_damage.tres")
 var upgrade_arrow_rate = preload("res://resources/upgrades/arrow_rate.tres")
+var upgrade_dart = preload("res://resources/upgrades/dart.tres")
 
 
 func _ready() -> void:
@@ -29,9 +30,11 @@ func _ready() -> void:
 	upgrade_pool.add_item(upgrade_anvil, 10)
 	upgrade_pool.add_item(upgrade_arrow, 10)
 	upgrade_pool.add_item(upgrade_sword_rate, 10)
-	upgrade_pool.add_item(upgrade_sword_damage, 100)
+	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_pickup_range, 5)
+	upgrade_pool.add_item(upgrade_dart, 100)
+	
 	
 	experience_manager.level_up.connect(on_level_up)
 

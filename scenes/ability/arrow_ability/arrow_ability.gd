@@ -22,13 +22,13 @@ func _ready() -> void:
 	if enemies.size() == 0:
 		return
 	
-	#else:
-		## enemies组内排序最近的敌人
-		#enemies.sort_custom(func(a:Node2D, b:Node2D):
-			#var a_distance = a.global_position.distance_squared_to(player.global_position)
-			#var b_distance = b.global_position.distance_squared_to(player.global_position)
-			#return a_distance < b_distance
-		#)
+	else:
+		# enemies组内排序最近的敌人
+		enemies.sort_custom(func(a:Node2D, b:Node2D):
+			var a_distance = a.global_position.distance_squared_to(player.global_position)
+			var b_distance = b.global_position.distance_squared_to(player.global_position)
+			return a_distance < b_distance
+		)
 	
 	#修正方向 对准敌人
 	base_rotation = fire_position.direction_to(enemies[0].global_position)
