@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fy1jk4x6o71x"
-path="res://.godot/imported/dart.png-941be254633cafb12607f5192cd18c68.ctex"
+path="res://.godot/imported/dart.png-0693d136266c3ced35d7bc68a563f64b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ability/rock_ability/dart.png"
-dest_files=["res://.godot/imported/dart.png-941be254633cafb12607f5192cd18c68.ctex"]
+source_file="res://scenes/ability/dart_ability/dart.png"
+dest_files=["res://.godot/imported/dart.png-0693d136266c3ced35d7bc68a563f64b.ctex"]
 
 [params]
 

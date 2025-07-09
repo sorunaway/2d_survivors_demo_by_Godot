@@ -64,7 +64,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	# 攻速增加10%
 	if upgrade.id == "sword_rate":
 		var percent_reduction = current_upgrades["sword_rate"]["quantity"] * 0.1
-		current_attack_speed += base_attack_speed * percent_reduction
+		current_attack_speed = base_attack_speed * (1 + percent_reduction)
 		$Cooldown.wait_time = 1/current_attack_speed
 		$Cooldown.start()
 	# 伤害增加30%

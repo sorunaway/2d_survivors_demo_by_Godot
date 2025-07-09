@@ -47,10 +47,11 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		
 	elif  upgrade.id == "axe_rate":
 		var percent_reduction = current_upgrades["axe_rate"]["quantity"] * 0.1
-		current_attack_speed += base_attack_speed * percent_reduction
+		current_attack_speed = base_attack_speed * (1 + percent_reduction)
 		prepare_attack.wait_time = 1/current_attack_speed
+		prepare_attack.start()
 		
 	elif upgrade.id == "axe_damage":
-		var damage_quantity = current_upgrades["arrow_damage"]["quantity"]
+		var damage_quantity = current_upgrades["axe_damage"]["quantity"]
 		additional_damage_percent = 1 + (damage_quantity * 0.2)
 		upgrade_scale = Vector2(damage_quantity * 0.1, damage_quantity * 0.1)

@@ -5,10 +5,12 @@ extends Node2D
 
 var level = 1
 var hp = 1
-var speed = 100
+var speed = 200
 var damage = 5
 var knock_amount = 100
 var attack_size = 1.0
+
+var dart_hp = hp
 
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
@@ -17,7 +19,8 @@ var angle = Vector2.ZERO
 func _ready() -> void:
 	angle = global_position.direction_to(target)
 	rotation = angle.angle()
-	hitbox_component.area_entered.connect(on_enemy_hit)
+	
+	#GameEvents.ability_upgrades_added.connect(on_ability_upgrades_added)
 	#match level:
 		#1:
 			#hp = 1
@@ -37,11 +40,16 @@ func _physics_process(delta: float) -> void:
 		#queue_free()
 
 
+func on_enemy_hit(charge):
+	hp -= charge
+	if hp <= 0:
+		queue_free()
+
+
 func _on_timer_timeout() -> void:
 	queue_free()
 
 
-func on_enemy_hit():
-	hp -= 1
-	if hp <= 0:
-		queue_free()
+#func on_ability_upgrades_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	#if ability_upgrade.id == "dart_damage":
+		#hp = 1 + current_upgrades["dart_damage"]["quantity"]

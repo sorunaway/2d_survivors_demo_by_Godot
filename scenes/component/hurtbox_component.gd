@@ -20,6 +20,10 @@ func on_area_entered(other_area: Area2D):
 	if health_component == null:
 		return
 	
+	if other_area.owner.has_method("on_enemy_hit"):
+		other_area.owner.on_enemy_hit(1)
+	
+	
 	if !timer.is_processing():
 		var hitbox_component = other_area as HitboxComponent
 		health_component.take_damage(hitbox_component.damage)

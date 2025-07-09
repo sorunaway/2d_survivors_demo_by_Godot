@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://n7p3wt1unflw"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_q7k08"]
+
+[resource]
+script = ExtResource("1_q7k08")
+id = "dart_damage"
+max_quantity = 5
+name = "重型手里剑"
+description = "手里剑伤害增加20%并增加1点穿透力"

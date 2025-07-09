@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://nujlfvy4h8ua"]
 
-[ext_resource type="Script" uid="uid://dsfs3p8w024m3" path="res://scenes/ability/rock_ability/dart_ability.gd" id="1_2x6da"]
-[ext_resource type="Texture2D" uid="uid://fy1jk4x6o71x" path="res://scenes/ability/rock_ability/dart.png" id="1_5gpfx"]
+[ext_resource type="Script" uid="uid://dsfs3p8w024m3" path="res://scenes/ability/dart_ability/dart_ability.gd" id="1_2x6da"]
+[ext_resource type="Texture2D" uid="uid://fy1jk4x6o71x" path="res://scenes/ability/dart_ability/dart.png" id="1_5gpfx"]
 [ext_resource type="PackedScene" uid="uid://ceje4rlmxcth1" path="res://scenes/component/hitbox_component.tscn" id="2_2x6da"]
 
 [sub_resource type="Animation" id="Animation_ncds6"]
@@ -66,7 +66,7 @@ autoplay = "run"
 shape = SubResource("CircleShape2D_dgrid")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 

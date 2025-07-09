@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvc7muvem5bdu"]
 
 [ext_resource type="Script" uid="uid://d1v7uk1r5skvp" path="res://scenes/ability/dart_ability_contorller/dart_ability_controller.gd" id="1_e0uqy"]
-[ext_resource type="PackedScene" uid="uid://nujlfvy4h8ua" path="res://scenes/ability/rock_ability/dart_ability.tscn" id="2_1vn8c"]
+[ext_resource type="PackedScene" uid="uid://nujlfvy4h8ua" path="res://scenes/ability/dart_ability/dart_ability.tscn" id="2_1vn8c"]
 
 [node name="DartAbilityController" type="Node"]
 script = ExtResource("1_e0uqy")
