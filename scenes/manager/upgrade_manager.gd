@@ -36,7 +36,7 @@ func _ready() -> void:
 	upgrade_pool.add_item(upgrade_sword_damage, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_pickup_range, 5)
-	upgrade_pool.add_item(upgrade_dart, 100)
+	upgrade_pool.add_item(upgrade_dart, 10)
 	
 	
 	experience_manager.level_up.connect(on_level_up)
@@ -82,9 +82,9 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_arrow_rate, 10)
 		
 	elif chosen_upgrade.id == upgrade_dart.id:
-		upgrade_pool.add_item(upgrade_dart_count, 80)
-		upgrade_pool.add_item(upgrade_dart_damage, 100)
-		upgrade_pool.add_item(upgrade_dart_rate, 100)
+		upgrade_pool.add_item(upgrade_dart_count, 8)
+		upgrade_pool.add_item(upgrade_dart_damage, 10)
+		upgrade_pool.add_item(upgrade_dart_rate, 10)
 
 
 func pick_upgrades():
