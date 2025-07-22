@@ -181,5 +181,7 @@ offset = Vector2(0, -10)
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_4jk3l")
 
+[connection signal="hit" from="HurtboxComponent" to="VelocityComponent" method="on_hit"]
+
 [editable path="DeathComponent"]
 [editable path="HurtboxComponent"]

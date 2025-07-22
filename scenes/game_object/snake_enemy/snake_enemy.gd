@@ -34,5 +34,5 @@ func set_is_moving(moving: bool):
 	is_moving = moving
 
 
-func on_hit():
+func on_hit(_angle, _knockback_amount):
 	hit_random_audio_player.play_random()

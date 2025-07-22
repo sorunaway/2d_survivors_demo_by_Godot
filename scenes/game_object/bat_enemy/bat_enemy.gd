@@ -26,5 +26,5 @@ func update_flip_direction(velocity_vector: Vector2):
 		last_flip_direction = move_sign
 
 
-func on_hit():
+func on_hit(_angle, _knockback_amount):
 	hit_random_audio_player.play_random()

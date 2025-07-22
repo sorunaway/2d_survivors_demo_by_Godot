@@ -144,5 +144,7 @@ texture = ExtResource("12_exfuj")
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_4jk3l")
 
+[connection signal="hit" from="HurtboxComponent" to="VelocityComponent" method="on_hit"]
+
 [editable path="DeathComponent"]
 [editable path="HurtboxComponent"]

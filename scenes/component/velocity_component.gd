@@ -4,8 +4,11 @@ extends Node
 @export var acceleration: float = 5
 @export var deceleration: float = 5
 
+
 var velocity = Vector2.ZERO
-var knock_speed = 700
+#var knock_speed = 700
+var knockback_recovery = 2.0
+var knockback = Vector2.ZERO
 
 
 # 向玩家加速
@@ -41,6 +44,12 @@ func decelerate():
 
 # 移动
 func move(character_body: CharacterBody2D):
+	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
 	character_body.velocity = velocity
+	character_body.velocity += knockback
 	character_body.move_and_slide()
 	velocity = character_body.velocity
+
+
+func on_hit(angle: Variant, knockback_amount: Variant) -> void:
+	knockback = angle * knockback_amount

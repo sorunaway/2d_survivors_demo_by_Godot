@@ -134,13 +134,6 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 hit_flash_material = SubResource("ShaderMaterial_yyp5f")
 
-[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_7laxo")]
-health_component = NodePath("../HealthComponent")
-sprite = NodePath("../Visuals/Sprite2D")
-
-[node name="HitRandomAudioPlayer" parent="DeathComponent" index="2"]
-streams = Array[AudioStream]([ExtResource("12_jimn8"), ExtResource("13_qku51"), ExtResource("14_ws2by")])
-
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_4hxsg")]
 position = Vector2(0, -5)
 health_component = NodePath("../HealthComponent")
@@ -148,6 +141,13 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("CircleShape2D_4ryhp")
 debug_color = Color(0.122858, 0.647065, 7.70092e-07, 0.42)
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_7laxo")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+
+[node name="HitRandomAudioPlayer" parent="DeathComponent" index="2"]
+streams = Array[AudioStream]([ExtResource("12_jimn8"), ExtResource("13_qku51"), ExtResource("14_ws2by")])
 
 [node name="Visuals" type="Node2D" parent="."]
 
@@ -159,5 +159,7 @@ offset = Vector2(0, -4)
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_cicqn")
 
-[editable path="DeathComponent"]
+[connection signal="hit" from="HurtboxComponent" to="VelocityComponent" method="on_hit"]
+
 [editable path="HurtboxComponent"]
+[editable path="DeathComponent"]
