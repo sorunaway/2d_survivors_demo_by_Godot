@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwi3s5q2gb55m"]
+
+[ext_resource type="Script" uid="uid://l3aafxh6ff4h" path="res://scenes/ability/fireball_ability_contorller/fireball_ability_controller.gd" id="1_wbogj"]
+[ext_resource type="PackedScene" uid="uid://6rcrxnvs2sj1" path="res://scenes/ability/fireball_ability/fireball_ability.tscn" id="2_h4wk3"]
+
+[node name="FireballAbilityController" type="Node"]
+script = ExtResource("1_wbogj")
+fireball_ability_scene = ExtResource("2_h4wk3")
+
+[node name="PrepareAttack" type="Timer" parent="."]
+autostart = true

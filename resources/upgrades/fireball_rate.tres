@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://c21w38pmwke20"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_xv43x"]
+
+[resource]
+script = ExtResource("1_xv43x")
+id = "fireball_rate"
+max_quantity = 5
+name = "快速火球"
+description = "火球攻速增加10%并增加弹道速度"

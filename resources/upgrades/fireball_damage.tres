@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://8cxntet3l83d"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_80abq"]
+
+[resource]
+script = ExtResource("1_80abq")
+id = "fireball_damage"
+max_quantity = 5
+name = "高爆火球"
+description = "火球伤害增加20%并略微增加爆炸范围"

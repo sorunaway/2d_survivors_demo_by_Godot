@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NewAbility" load_steps=3 format=3 uid="uid://btqo5mb0i3eq8"]
+
+[ext_resource type="PackedScene" uid="uid://cwi3s5q2gb55m" path="res://scenes/ability/fireball_ability_contorller/fireball_ability_controller.tscn" id="1_wnxue"]
+[ext_resource type="Script" uid="uid://ys1s6bwxnieu" path="res://resources/upgrades/new_ability.gd" id="2_mmddi"]
+
+[resource]
+script = ExtResource("2_mmddi")
+ability_controller_scene = ExtResource("1_wnxue")
+id = "fireball"
+max_quantity = 1
+name = "火球"
+description = "每隔一段向随机敌人投掷一颗会爆炸的火球"
