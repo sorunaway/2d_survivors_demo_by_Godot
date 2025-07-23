@@ -41,7 +41,7 @@ func _ready() -> void:
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_pickup_range, 5)
 	upgrade_pool.add_item(upgrade_dart, 10)
-	upgrade_pool.add_item(upgrade_fireball, 100)
+	upgrade_pool.add_item(upgrade_fireball, 1000)
 	
 	
 	experience_manager.level_up.connect(on_level_up)

@@ -145,6 +145,7 @@ offset = Vector2(0, -5)
 
 [node name="HitRandomAudioPlayer" parent="." instance=ExtResource("3_7geth")]
 process_mode = 3
-volume_db = -5.0
+stream = ExtResource("3_uohhb")
+volume_db = -8.0
 streams = Array[AudioStream]([ExtResource("3_uohhb")])
 randomize_pitch = false
