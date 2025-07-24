@@ -7,4 +7,4 @@ script = ExtResource("1_xv43x")
 id = "fireball_rate"
 max_quantity = 5
 name = "快速火球"
-description = "火球攻速增加10%并增加弹道速度"
+description = "火球攻速增加20%并增加弹道速度"

@@ -5,7 +5,7 @@ const MAX_RANGE = 240
 
 @export var fireball_ability_scene: PackedScene
 
-var base_attack_speed = 0.28
+var base_attack_speed = 0.24
 var current_attack_speed = base_attack_speed
 var base_damage: float = 16.0
 var additional_damage_percent = 1
@@ -68,7 +68,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		
 	# 攻速增加10%
 	elif upgrade.id == "fireball_rate":
-		var percent_reduction = current_upgrades["fireball_rate"]["quantity"] * 0.1
+		var percent_reduction = current_upgrades["fireball_rate"]["quantity"] * 0.2
 		additional_fireball_speed = percent_reduction * 300
 		current_attack_speed = base_attack_speed * (1 + percent_reduction)
 		$PrepareAttack.wait_time = 1/current_attack_speed
