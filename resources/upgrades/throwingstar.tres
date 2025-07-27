@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NewAbility" load_steps=3 format=3 uid="uid://cr7iyoo252wnq"]
+
+[ext_resource type="PackedScene" uid="uid://hu5a5td3gdad" path="res://scenes/ability/throwingstar_ability_contorller/throwingstar_ability_controller.tscn" id="1_fofpf"]
+[ext_resource type="Script" uid="uid://ys1s6bwxnieu" path="res://resources/upgrades/new_ability.gd" id="2_73i4y"]
+
+[resource]
+script = ExtResource("2_73i4y")
+ability_controller_scene = ExtResource("1_fofpf")
+id = "throwingstar"
+max_quantity = 1
+name = "回旋飞刃"
+description = "每隔一段向随机敌人投掷回旋飞刃，飞刃到达最大距离后会返回"

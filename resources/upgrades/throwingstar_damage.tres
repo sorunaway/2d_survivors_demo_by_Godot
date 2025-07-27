@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://26mel1g3g8b6"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_a7rjs"]
+
+[resource]
+script = ExtResource("1_a7rjs")
+id = "throwingstar_damage"
+max_quantity = 5
+name = "锯齿飞刃"
+description = "飞刃伤害增加20%并略微增加大小"

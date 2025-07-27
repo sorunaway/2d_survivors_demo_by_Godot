@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://hu5a5td3gdad"]
+[gd_scene load_steps=3 format=3 uid="uid://hu5a5td3gdad"]
 
 [ext_resource type="Script" uid="uid://bn54ssuh22vfw" path="res://scenes/ability/throwingstar_ability_contorller/throwingstar_ability_controller.gd" id="1_dnvik"]
+[ext_resource type="PackedScene" uid="uid://cbjxgec30irow" path="res://scenes/ability/throwingstar_ability/throwingstar_ability.tscn" id="2_ijduh"]
 
 [node name="ThrowingstarAbilityController" type="Node"]
 script = ExtResource("1_dnvik")
+throwingstar_ability_scene = ExtResource("2_ijduh")
 
 [node name="PrepareAttack" type="Timer" parent="."]
 autostart = true

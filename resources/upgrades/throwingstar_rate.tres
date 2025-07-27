@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://co0myti4ky04g"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_qlos4"]
+
+[resource]
+script = ExtResource("1_qlos4")
+id = "throwingstar_rate"
+max_quantity = 5
+name = "快速飞刃"
+description = "飞刃攻速增加20%并略微增加范围"

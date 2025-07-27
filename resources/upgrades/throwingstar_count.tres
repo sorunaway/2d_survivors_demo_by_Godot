@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://dfob2i7mx513b"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_nhmep"]
+
+[resource]
+script = ExtResource("1_nhmep")
+id = "throwingstar_count"
+max_quantity = 3
+name = "额外飞刃"
+description = "额外投掷两枚飞刃"

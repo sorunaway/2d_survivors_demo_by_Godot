@@ -40,7 +40,7 @@ func on_prepare_attack_timeout():
 		get_tree().get_first_node_in_group("foreground_layer").add_child(fireball_ability)
 		fireball_ability.hitbox_component.damage = base_damage * additional_damage_percent
 		
-		await get_tree().create_timer(0.06).timeout
+		await get_tree().create_timer(0.16).timeout
 
 
 func pick_random_enemy_position():

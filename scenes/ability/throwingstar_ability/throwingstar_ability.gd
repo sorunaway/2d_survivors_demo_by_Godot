@@ -1,29 +1,20 @@
 extends Node2D
 
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
-@onready var player = get_tree().get_first_node_in_group("player")
+@onready var animation_player: AnimationPlayer = $Visuals/AnimationPlayer
 
-var hp = 1
-var speed = 200
+@onready var player = get_tree().get_first_node_in_group("player") as Node2D
+
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
 
-
 func _ready() -> void:
-	angle = global_position.direction_to(target)
+	angle = player.global_position.direction_to(target)
 	rotation = angle.angle()
-
-
-func _physics_process(delta: float) -> void:
-	position += angle * speed * delta
-	
-
-
-func on_enemy_hit(charge):
-	hp -= charge
-	if hp <= 0:
-		queue_free()
-
-
-func _on_timer_timeout() -> void:
-	queue_free()
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", target, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	animation_player.play("lauching")
+	animation_player.play("expanding")
+	tween.tween_property(self, "global_position", player.global_position, 0.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.3)
+	animation_player.play("returning")
+	tween.tween_callback(queue_free)

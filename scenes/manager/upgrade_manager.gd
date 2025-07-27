@@ -30,6 +30,10 @@ var upgrade_fireball = preload("res://resources/upgrades/fireball.tres")
 var upgrade_fireball_count = preload("res://resources/upgrades/fireball_count.tres")
 var upgrade_fireball_damage = preload("res://resources/upgrades/fireball_damage.tres")
 var upgrade_fireball_rate = preload("res://resources/upgrades/fireball_rate.tres")
+var upgrade_throwingstar = preload("res://resources/upgrades/throwingstar.tres")
+var upgrade_throwingstar_count = preload("res://resources/upgrades/throwingstar_count.tres")
+var upgrade_throwingstar_damage = preload("res://resources/upgrades/throwingstar_damage.tres")
+var upgrade_throwingstar_rate = preload("res://resources/upgrades/throwingstar_rate.tres")
 
 
 func _ready() -> void:
@@ -41,7 +45,8 @@ func _ready() -> void:
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_pickup_range, 5)
 	upgrade_pool.add_item(upgrade_dart, 10)
-	upgrade_pool.add_item(upgrade_fireball, 1000)
+	upgrade_pool.add_item(upgrade_fireball, 10)
+	upgrade_pool.add_item(upgrade_throwingstar, 1000)
 	
 	
 	experience_manager.level_up.connect(on_level_up)
@@ -95,6 +100,11 @@ func update_upgrade_pool(chosen_upgrade: AbilityUpgrade):
 		upgrade_pool.add_item(upgrade_fireball_count, 8)
 		upgrade_pool.add_item(upgrade_fireball_damage, 10)
 		upgrade_pool.add_item(upgrade_fireball_rate, 10)
+		
+	elif chosen_upgrade.id == upgrade_throwingstar.id:
+		upgrade_pool.add_item(upgrade_throwingstar_count, 8)
+		upgrade_pool.add_item(upgrade_throwingstar_damage, 10)
+		upgrade_pool.add_item(upgrade_throwingstar_rate, 10)
 
 
 func pick_upgrades():

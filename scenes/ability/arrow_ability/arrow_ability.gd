@@ -45,7 +45,7 @@ func _ready() -> void:
 		0.0, 
 		1.0,
 		1.0
-	).set_ease(Tween.EASE_OUT)
+	).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(queue_free)
 
 
