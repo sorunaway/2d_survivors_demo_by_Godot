@@ -1,20 +1,19 @@
 extends Node
 
-const MAX_RANGE = 200
+const MAX_RANGE = 120
 const BASE_ANGLE_OFFSET = 12 #每个飞镖的基础角度偏移
 
 @export var throwingstar_ability_scene: PackedScene
 
-var base_attack_speed = 0.8
+var base_attack_speed = 0.36
 var current_attack_speed = base_attack_speed
-var base_damage: float = 6.0
+var base_damage: float = 4.0
 var additional_damage_percent = 1
 var throwingstar_count = 0
 var upgrade_scale = Vector2.ZERO
 var base_scale = Vector2.ONE
-var random_enemy_position = Vector2.UP
-#var additional_throwingstar_hp = 0 # 穿透力升级加成
-var additional_throwingstar_speed = 0 # 弹道速度升级加成
+var additional_range_percent = 1
+var return_speed_upgrade = 0.0
 
 
 func _ready() -> void:
@@ -41,6 +40,8 @@ func on_prepare_attack_timeout():
 	for i in throwingstar_count + 1:
 		var throwingstar_ability = throwingstar_ability_scene.instantiate() as Node2D
 		throwingstar_ability.global_position = player.global_position
+		throwingstar_ability.scale = base_scale + upgrade_scale
+		throwingstar_ability.return_speed = 400 + return_speed_upgrade
 		
 		var current_angle_offset = (i - center_index) * angle_offset
 		if total_throwingstars == 1:
@@ -48,10 +49,8 @@ func on_prepare_attack_timeout():
 		else:
 			var direction = player.global_position.direction_to(base_target)
 			var rotated_direction = direction.rotated(current_angle_offset)
-			throwingstar_ability.target = player.global_position + rotated_direction * MAX_RANGE
+			throwingstar_ability.target = player.global_position + rotated_direction * MAX_RANGE * additional_range_percent
 		
-		throwingstar_ability.scale = base_scale + upgrade_scale
-		throwingstar_ability.speed = 200 + additional_throwingstar_speed
 		
 		get_tree().get_first_node_in_group("foreground_layer").add_child(throwingstar_ability)
 		throwingstar_ability.hitbox_component.damage = base_damage * additional_damage_percent
@@ -70,10 +69,10 @@ func pick_random_enemy_position():
 		)
 	if enemies.size() == 0:
 		var random_angle = randf_range(0, TAU)
-		return player.global_position + Vector2(cos(random_angle), sin(random_angle)) * MAX_RANGE
+		return player.global_position + Vector2(cos(random_angle), sin(random_angle)) * MAX_RANGE * additional_range_percent
 		
 	else :
-		return player.global_position + player.global_position.direction_to(enemies.pick_random().global_position) * MAX_RANGE
+		return player.global_position + player.global_position.direction_to(enemies.pick_random().global_position) * MAX_RANGE * additional_range_percent
 
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
@@ -83,8 +82,8 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	# 攻速增加10%
 	elif upgrade.id == "throwingstar_rate":
 		var percent_reduction = current_upgrades["throwingstar_rate"]["quantity"] * 0.1
-		additional_throwingstar_speed = percent_reduction * 400
-		current_attack_speed = base_attack_speed * (1 + percent_reduction)
+		additional_range_percent = 1 + percent_reduction
+		return_speed_upgrade = current_upgrades["throwingstar_rate"]["quantity"] * 40
 		$PrepareAttack.wait_time = 1/current_attack_speed
 		$PrepareAttack.start()
 

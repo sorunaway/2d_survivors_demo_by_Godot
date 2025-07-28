@@ -33,7 +33,7 @@ func add_meta_upgrade(upgrade: MetaUpgrade):
 		}
 	
 	save_date["meta_upgrades"][upgrade.id]["quantity"] += 1 # 所选升级数量+1
-	print(save_date) # 调试
+	#print(save_date) # 调试
 	save()
 
 
