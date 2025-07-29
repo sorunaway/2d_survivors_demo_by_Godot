@@ -4,7 +4,7 @@ const MAX_RANGE = 120
 
 @export var sword_ability:PackedScene
 
-var base_attack_speed = 0.5
+var base_attack_speed = 0.56
 var current_attack_speed = base_attack_speed
 var base_damage: float = 8.0
 var additional_damage_percent = 1

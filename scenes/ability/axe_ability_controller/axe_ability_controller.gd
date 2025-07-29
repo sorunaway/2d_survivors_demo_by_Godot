@@ -8,7 +8,7 @@ const MAX_RANGE = 120
 
 var base_attack_speed = 0.33
 var current_attack_speed = base_attack_speed
-var base_damage: float = 10
+var base_damage: float = 12
 var additional_damage_percent = 1
 var axe_count = 0
 var upgrade_scale = Vector2.ZERO

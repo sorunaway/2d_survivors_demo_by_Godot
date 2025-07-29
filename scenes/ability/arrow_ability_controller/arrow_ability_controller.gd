@@ -4,7 +4,7 @@ extends Node
 
 var base_attack_speed = 0.6
 var current_attack_speed = base_attack_speed
-var base_damage: float = 4.0
+var base_damage: float = 6.0
 var additional_damage_percent = 1
 var arrow_count = 0
 var damage_upgrade = 0.0

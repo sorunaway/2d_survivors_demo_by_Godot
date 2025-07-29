@@ -5,7 +5,7 @@ const BASE_ANGLE_OFFSET = 8 #每个飞镖的基础角度偏移
 
 @export var dart_ability_scene: PackedScene
 
-var base_attack_speed = 0.8
+var base_attack_speed = 0.70
 var current_attack_speed = base_attack_speed
 var base_damage: float = 6.0
 var additional_damage_percent = 1
