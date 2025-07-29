@@ -5,6 +5,7 @@ const BASE_ANGLE_OFFSET = 12 #每个飞镖的基础角度偏移
 
 @export var throwingstar_ability_scene: PackedScene
 
+var detective_range = 220
 var base_attack_speed = 0.36
 var current_attack_speed = base_attack_speed
 var base_damage: float = 4.0
@@ -65,7 +66,7 @@ func pick_random_enemy_position():
 	var enemies = get_tree().get_nodes_in_group("enemy")
 		# 过滤，只留在范围内的敌人
 	enemies = enemies.filter(func(enemy: Node2D):
-		return enemy.global_position.distance_squared_to(player.global_position) < pow(MAX_RANGE, 2)
+		return enemy.global_position.distance_squared_to(player.global_position) < pow(detective_range, 2)
 		)
 	if enemies.size() == 0:
 		var random_angle = randf_range(0, TAU)
