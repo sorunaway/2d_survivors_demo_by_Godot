@@ -9,4 +9,5 @@ ability_controller_scene = ExtResource("1_7hn83")
 id = "anvil"
 max_quantity = 1
 name = "铁毡"
+rate = 1
 description = "每隔一段时间从天而降一块铁毡对一定范围内敌人造成伤害"

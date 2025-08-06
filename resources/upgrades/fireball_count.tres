@@ -7,4 +7,5 @@ script = ExtResource("1_65cc5")
 id = "fireball_count"
 max_quantity = 3
 name = "散射火球"
+rate = 2
 description = "额外投掷一颗火球"

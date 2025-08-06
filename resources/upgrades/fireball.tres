@@ -9,4 +9,5 @@ ability_controller_scene = ExtResource("1_wnxue")
 id = "fireball"
 max_quantity = 1
 name = "火球"
+rate = 2
 description = "每隔一段向随机敌人投掷一颗会爆炸的火球"

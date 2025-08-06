@@ -9,4 +9,5 @@ ability_controller_scene = ExtResource("1_mbmfr")
 id = "dart"
 max_quantity = 1
 name = "手里剑"
+rate = 1
 description = "每隔一段向随机敌人投掷手里剑"

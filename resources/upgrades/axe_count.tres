@@ -7,4 +7,5 @@ script = ExtResource("1_dsb2q")
 id = "axe_count"
 max_quantity = 2
 name = "额外飞斧"
+rate = 2
 description = "额外投掷一把飞斧"

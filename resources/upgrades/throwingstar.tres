@@ -9,4 +9,5 @@ ability_controller_scene = ExtResource("1_fofpf")
 id = "throwingstar"
 max_quantity = 1
 name = "回旋飞刃"
+rate = 2
 description = "每隔一段向随机敌人投掷回旋飞刃，飞刃到达最大距离后会返回"

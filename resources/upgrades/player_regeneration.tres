@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://dsruichwnvme1"]
+
+[ext_resource type="Script" uid="uid://8uu1el1o6d6d" path="res://resources/upgrades/ability_upgrade.gd" id="1_fr7n1"]
+
+[resource]
+script = ExtResource("1_fr7n1")
+id = "player_regeneration"
+max_quantity = 3
+name = "生命再生"
+rate = 2
+description = "生命力汹涌澎湃! 每过30秒回复1点生命值"

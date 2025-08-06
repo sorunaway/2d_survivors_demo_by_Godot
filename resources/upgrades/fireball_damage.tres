@@ -7,4 +7,5 @@ script = ExtResource("1_80abq")
 id = "fireball_damage"
 max_quantity = 5
 name = "高爆火球"
+rate = 1
 description = "火球伤害增加20%并略微增加爆炸范围"

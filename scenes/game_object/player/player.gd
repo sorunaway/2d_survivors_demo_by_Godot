@@ -17,6 +17,7 @@ var current_animation: String = "idle"
 var last_flip_direction: int = 1 # 初始方向右
 var base_speed = 0
 var pickup_range = 60.0
+var player_regeneration: int = 0
 
 
 func _ready() -> void:
@@ -119,12 +120,15 @@ func on_ability_upgrades_added(ability_upgrade: AbilityUpgrade, current_upgrades
 		velocity_component.max_speed = base_speed + (current_upgrades["player_speed"]["quantity"] * 15)
 	elif ability_upgrade.id == "pickup_range":
 		pickup_area_shape.shape.radius = pickup_range + (40 * current_upgrades["pickup_range"]["quantity"])
-
+	elif ability_upgrade.id == "player_regeneration":
+		player_regeneration = current_upgrades["player_regeneration"]["quantity"]
 
 # 自动恢复能力接受经过时间信号
 func on_arena_difficulty_increased(difficulty: int):
-	var health_regeneration_quantity = MetaProgression.get_upgrade_count("health_regeneration")
-	if health_regeneration_quantity > 0:
-		var is_thirty_second_interval = (difficulty % (6 / health_regeneration_quantity)) == 0
-		if is_thirty_second_interval:
-			health_component.heal(1)
+	var health_regeneration_quantity = MetaProgression.get_upgrade_count("health_regeneration")#回复量局外成长
+	var health_regeneration_rate_quantity = MetaProgression.get_upgrade_count("health_regeneration_rate")#回复效率
+	var total_regeneration_quantity = health_regeneration_quantity + player_regeneration
+	# 每30秒“每5秒难度+1，余6则是每30秒”触发一次回血
+	var is_thirty_second_interval = (difficulty % (6 - health_regeneration_rate_quantity)) == 0
+	if is_thirty_second_interval:
+		health_component.heal(1 + total_regeneration_quantity)

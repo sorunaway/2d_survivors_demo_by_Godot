@@ -4,6 +4,8 @@ signal selected
 
 @onready var name_label: Label = $MarginContainer/VBoxContainer/PanelContainer/NameLabel
 @onready var description_label: Label = $MarginContainer/VBoxContainer/DescriptionLabel
+@onready var panel_container: PanelContainer = $MarginContainer/VBoxContainer/PanelContainer
+
 
 var disabled = false
 
@@ -28,6 +30,15 @@ func play_discard():
 func set_ability_upgrade(upgrade:AbilityUpgrade):
 	name_label.text = upgrade.name
 	description_label.text = upgrade.description
+	if upgrade.rate == 1:
+		self.theme_type_variation = "RatePanelContainer"
+		panel_container.theme_type_variation = "AlternatePC2"
+	elif upgrade.rate >= 2:
+		self.theme_type_variation = "Rate2PanelContainer"
+		panel_container.theme_type_variation = "AlternatePC3"
+	else:
+		self.theme_type_variation = ""
+		panel_container.theme_type_variation = "AlternatePanelContainer"
 
 
 func select_card():

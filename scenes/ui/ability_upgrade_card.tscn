@@ -220,6 +220,7 @@ _data = {
 [node name="AbilityUpgradeCard" type="PanelContainer" groups=["upgrade_card"]]
 custom_minimum_size = Vector2(132, 160)
 pivot_offset = Vector2(66, 80)
+theme_type_variation = &"Rate2PanelContainer"
 script = ExtResource("1_4ci0n")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -261,7 +262,7 @@ theme_type_variation = &"AlternatePanelContainer"
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "斧头"
+text = "测试"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

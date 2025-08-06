@@ -7,4 +7,5 @@ script = ExtResource("1_f6eio")
 id = "dart_count"
 max_quantity = 3
 name = "散射手里剑"
+rate = 2
 description = "额外投掷两支手里剑"

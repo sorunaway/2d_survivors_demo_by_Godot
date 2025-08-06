@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://bm3g4huhp2qum"]
+
+[ext_resource type="Script" uid="uid://bmt2273qmn8ws" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_qnkrv"]
+
+[resource]
+script = ExtResource("1_qnkrv")
+id = "health_regenera_rate"
+max_quantity = 3
+experience_cost = 500
+title = "快速愈合"
+description = "再生速度提升,每提升一级生命值再生所需时间缩短5秒"

@@ -7,4 +7,5 @@ script = ExtResource("1_dxoi6")
 id = "arrow_damage"
 max_quantity = 5
 name = "强力弓"
+rate = 1
 description = "箭矢伤害增加30%射程增加10%"

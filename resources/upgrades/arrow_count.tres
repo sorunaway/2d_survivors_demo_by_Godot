@@ -7,4 +7,5 @@ script = ExtResource("1_c22mr")
 id = "arrow_count"
 max_quantity = 3
 name = "弓箭连射"
+rate = 2
 description = "额外发射一支箭矢"

@@ -7,4 +7,5 @@ script = ExtResource("1_q7k08")
 id = "dart_damage"
 max_quantity = 5
 name = "重型手里剑"
+rate = 1
 description = "手里剑伤害增加20%并增加1点穿透力"

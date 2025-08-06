@@ -7,4 +7,5 @@ script = ExtResource("1_nhmep")
 id = "throwingstar_count"
 max_quantity = 3
 name = "额外飞刃"
+rate = 2
 description = "额外投掷两枚飞刃"

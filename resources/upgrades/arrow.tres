@@ -9,4 +9,5 @@ ability_controller_scene = ExtResource("1_vlic3")
 id = "arrow"
 max_quantity = 1
 name = "射箭"
+rate = 0
 description = "每隔一段向最近的敌人发射弓箭"

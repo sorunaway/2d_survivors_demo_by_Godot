@@ -7,4 +7,5 @@ script = ExtResource("1_rjd08")
 id = "anvil_damage"
 max_quantity = 5
 name = "强力铁毡"
+rate = 1
 description = "铁毡伤害增加10%范围增加20%."

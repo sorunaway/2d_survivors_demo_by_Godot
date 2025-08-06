@@ -6,6 +6,6 @@
 script = ExtResource("1_pk4mr")
 id = "max_health"
 max_quantity = 10
-experience_cost = 50
+experience_cost = 100
 title = "最大生命值"
 description = "最大生命值提升(2x技能等级)点"
