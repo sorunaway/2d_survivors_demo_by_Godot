@@ -14,7 +14,7 @@ config/name="2D Survivors"
 run/main_scene="uid://c1fig5e0c5ua4"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="2Dsurvivors"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bya6rouvclbjk"
 
 [autoload]
@@ -36,9 +36,9 @@ window/stretch/mode="canvas_items"
 
 [gui]
 
+theme/default_font_generate_mipmaps=true
 theme/custom="uid://d1ohceo06kk7u"
 theme/custom_font="uid://cc23j05lvgocb"
-theme/default_font_generate_mipmaps=true
 
 [input]
 
